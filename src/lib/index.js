@@ -48,7 +48,6 @@ export { default as TicketCarousel } from '$lib/components/organisms/TicketCarou
 export { default as WhatWeDo } from '$lib/components/organisms/WhatWeDo.svelte'
 export { default as HowItWorks } from '$lib/components/organisms/HowItWorks.svelte'
 export { default as Footer } from '$lib/components/organisms/Footer.svelte'
-export { default as TabBar } from '$lib/components/organisms/TabBar.svelte'
 export { default as Filter } from '$lib/components/organisms/Filter.svelte'
 export { default as Header } from '$lib/components/organisms/Header.svelte'
 export { default as AboutThisWalk } from '$lib/components/organisms/AboutThisWalk.svelte'
