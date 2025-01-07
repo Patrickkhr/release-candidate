@@ -14,7 +14,6 @@
         brdRadius="var(--radius-lg)"
         opacity="0.6"
         loading="lazy"
-        title={item.image.title.replace(/\s+/g, '-')}
       />
       <p>{item.price}</p>
     </div>

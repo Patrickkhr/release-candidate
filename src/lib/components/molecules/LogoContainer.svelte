@@ -7,7 +7,7 @@
   export let hidden = ''
 </script>
 
-<ul class="logo-container" aria-hidden="{hidden}"> 
+<ul class="logo-container color-logo" aria-hidden="{hidden}"> 
   <Logo source='{Vibe}' alt='Vibe' />
   <Logo source='{Lillet}' alt='Lillet' />
   <Logo source='{Pernod}' alt='Pernod Ricard' />
@@ -16,7 +16,7 @@
   <Logo source='{London}' alt='The London Essence' />
   <Logo source='{Absolut}' alt='Absolut Vodka' />
   <Logo source='{CocaCola}' alt='Coca Cola' />
-  <Logo source='{Passoa}' alt='passoa' />
+  <Logo source='{Passoa}' alt='Passoa' />
 </ul>
 
 <style>

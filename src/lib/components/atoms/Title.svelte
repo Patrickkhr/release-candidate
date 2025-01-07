@@ -5,15 +5,15 @@
 </script>
 
 {#if headertype === 'h1' }
-  <h1 class="title-{color}">
+  <h1 class="title-{color} christmas-title">
     {content}
   </h1>
 {:else if headertype === 'h2' }
-  <h2 class="title-{color}">
+  <h2 class="title-{color} christmas-title">
     {content}
   </h2>
 {:else if headertype === 'h3' }
-  <h3 class="title-{color}">
+  <h3 class="title-{color} christmas-title">
     {content}
   </h3>
 {/if}
@@ -34,8 +34,10 @@
 
   .title-light {
     color: var(--accent2-primary);
+    color: var(--title-primary);
   }
   .title-dark {
     color: var(--txt-dark-clr);
+    color: var(--title-secondary);
   }
 </style>
