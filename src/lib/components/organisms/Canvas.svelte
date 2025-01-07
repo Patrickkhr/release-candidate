@@ -974,7 +974,7 @@
         height: 2rem;
         background: var(--accent2-primary);
         bottom: 1.5rem;
-        right: 0;
+        left: 88rem;
         animation: driving-car 30s infinite;
     }
 
@@ -1037,23 +1037,6 @@
         top: 0.25rem;
         border-radius: 0px 50px 50px 0px;
         background: white;
-    }
-
-    .headlight::before {
-        content: "";
-        position: absolute;
-        width: 10rem;
-        height: 5rem;
-        clip-path: polygon(0 0, 100% 50%, 0 100%);
-        background: linear-gradient(
-            to right,
-            transparent,
-            white
-        );
-        left: -10rem;
-        top: -2.15rem;
-        opacity: 15%;
-        z-index: -10;
     }
 
     /* Building elements */
