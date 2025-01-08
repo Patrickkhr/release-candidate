@@ -1,4 +1,15 @@
 <script>
+  import { WorkWithUs, HomePage, GroupOutings, TicketsOverview, AboutUs } from '$lib/index'
+  export let data
+
+  const componentMap = {
+    home: HomePage,
+    'tour-overview': TicketsOverview,
+    'work-with-us': WorkWithUs,
+    'group-bookings': GroupOutings,
+    'about-us': AboutUs,
+  }
+
   import {
     WorkWithUs,
     HomePage,

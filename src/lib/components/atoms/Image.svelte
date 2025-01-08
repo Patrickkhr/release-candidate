@@ -8,7 +8,6 @@
   export let opacity = ''
   export let brdRadius = ''
   export let loading = ''
-  export let title = ''
 
   // Dynamische URL's voor verschillende formaten
   const smallWebp = transformImageUrl(src, { w: 375, fm: 'webp' })
@@ -30,7 +29,7 @@
     src={largeFallback}
     {alt}
     {loading}
-    style={`width: ${width}px; height: ${height}px; border-radius: ${brdRadius}; opacity: ${opacity}; view-transition-name: ${title};`}
+    style={`width: ${width}px; height: ${height}px; border-radius: ${brdRadius}; opacity: ${opacity};`}
   />
 </picture>
 
