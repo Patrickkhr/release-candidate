@@ -1,38 +1,85 @@
 <script>
-  import { Filter, TicketCard } from '$lib/index'
-  export let itemCollection
-  export let cities
+  import { Filter, TicketCard } from "$lib/index";
+  export let itemCollection;
 </script>
 
-<section>
-  <section>
-    <h1>Tickets</h1>
-    <Filter {cities} />
-  </section>
-
-  <section>
-    <TicketCard {itemCollection} />
-  </section>
+<section class="intro">
+  <h1>Tours</h1>
+  <ul>
+    <li>Amsterdam</li>
+    <li>Rotterdam</li>
+    <li>Utrecht</li>
+  </ul>
 </section>
 
-<svelte:head>
-  <title></title>
-</svelte:head>
+<section class="tours">
+  <TicketCard {itemCollection} />
+</section>
 
 <style>
+  .intro {
+    margin-top: 8em;
+    padding: 2em;
+    width: 100%;
+    background-color: #3f2b21;
+  }
+
+  ul {
+    padding-top: 0.5em;
+    padding-right: 2em;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: 768px) {
+    ul {
+      font-size: 16px;
+    }
+  }
+
+  li {
+    color: #ffe5d9;
+    cursor: pointer;
+    padding: 0.5em 1em 0 2em;
+  }
+
+  li:hover {
+    color: #ffaa81;
+  }
+
+  .intro ul li::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #ffaa81;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+  }
+
+  .intro ul li:hover::after {
+    width: 100%;
+  }
+
   h1 {
-    color: white;
+    text-align: center;
+    color: #ffaa81;
     font-size: 3.5rem;
   }
 
-  section:first-child {
-    margin: 7rem 4rem 4rem 4rem;
-  }
-
-  section:first-child > section:last-child {
+  .tours {
+    width: 60%;
+    max-width: 100vw;
+    min-width: 300px;
+    margin: 0 auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    align-items: center;
     justify-content: center;
+    gap: 20px;
   }
 </style>
