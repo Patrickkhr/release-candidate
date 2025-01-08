@@ -26,6 +26,7 @@ export { default as IconBrushThin } from '$lib/components/atoms/icons/IconBrushT
 export { default as IconCutleryThin } from '$lib/components/atoms/icons/IconCutleryThin.svelte'
 export { default as IconPhoneThin } from '$lib/components/atoms/icons/IconPhoneThin.svelte'
 export { default as IconMailThin } from '$lib/components/atoms/icons/IconMailThin.svelte'
+export { default as BookIcon } from '$lib/components/atoms/icons/BookIcon.svelte'
 
 //Atoms / InputFields
 export { default as DatePicker } from '$lib/components/atoms/inputFields/DatePicker.svelte'

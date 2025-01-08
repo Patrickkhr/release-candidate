@@ -1,121 +1,174 @@
 <script>
-  import { Image, RouteIcon, CocktailIcon, Button } from '$lib/index'
-  export let itemCollection
-  const items = itemCollection.componentsCollection.items
+  import {
+    Image,
+    RouteIcon,
+    CocktailIcon,
+    ArrowRightShort,
+    IconLocationThin,
+    BookIcon,
+    Button,
+  } from "$lib/index";
+  export let itemCollection;
+  const items = itemCollection.componentsCollection.items;
 </script>
 
 {#each items as item}
-  <article class="ticket-card">
-    <div>
-      <h3>{item.title}</h3>
-      <Image
+  <article>
+    <div class="card-header">
+      <p>
+        <span class="location-icon">
+          <IconLocationThin
+            width="13"
+            height="13"
+            fill="var(--txt-dark-clr)"
+          /></span
+        >
+        {item.location}
+      </p>
+      <p class="cocktail-price">{item.price}</p>
+    </div>
+    <div class="img-overlay">
+      <img
         src={item.image.url}
         alt={item.image.title}
         brdRadius="var(--radius-lg)"
         opacity="0.6"
         loading="lazy"
-        title={item.image.title.replace(/\s+/g, '-')}
+        width="450"
+        height="321"
+        title={item.image.title.replace(/\s+/g, "-")}
       />
-      <p>{item.price}</p>
+      <h2>{item.title}</h2>
+    </div>
+    <div class="card-description">
+      <ul>
+        <li>
+          <span
+            ><RouteIcon
+              width="20"
+              height="20"
+              fill="var(--page-bg-color)"
+            /></span
+          >
+          {item.location}
+        </li>
+        <li>
+          <span
+            ><CocktailIcon
+              width="20"
+              height="20"
+              fill="var(--page-bg-color)"
+            /></span
+          >
+          {item.cocktailDescription}
+        </li>
+      </ul>
     </div>
 
-    <div>
-      <p>
-        <span><RouteIcon width="25" height="25" fill="var(--page-bg-color)" /></span>
-        {item.location}
-      </p>
+    <!-- Book Icon toevoegen -->
 
-      <p>
-        <span><CocktailIcon width="25" height="25" fill="var(--page-bg-color)" /></span>
-        {item.cocktailDescription}
-      </p>
-
-      <div>
-        <Button type="button" variant="primary" title="Book Now" size="m" />
-        <Button href="/home/{item.slug}" variant="secondary" title="Read More" size="m" />
-      </div>
+    <div class="card-buttons">
+      <Button
+        type="button"
+        variant="tertiary"
+        title="Boek nu"
+        icon={BookIcon}
+        iconColor="var(--txt-quaternary-clr)"
+        size="s"
+      />
+      <Button
+        href="/home/{item.slug}"
+        variant="secondary"
+        title="Lees Meer"
+        icon={ArrowRightShort}
+        size="s"
+      />
     </div>
   </article>
 {/each}
 
 <style>
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+  }
+
+  .cocktail-price {
+    border: 1px solid #3f2b21;
+    border-radius: 8px;
+    padding: 0.2em;
+  }
+
   article {
-    min-width: 320px;
-    height: 400px;
-    border-radius: var(--radius-lg);
-    background-color: var(--accent2-quaternary);
-    scroll-snap-align: start;
-    scroll-snap-align: center;
-  }
-
-  div:nth-of-type(1) {
-    position: relative;
-    background: linear-gradient(137deg, rgba(206, 101, 56, 1) 0%, rgba(32, 22, 17, 1) 0%);
-  }
-
-  div:nth-of-type(2) {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #ffe5d9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 1em;
+    overflow: hidden;
   }
 
-  h3 {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 0;
-    padding: 0.5rem 0.4rem;
-    font-size: var(--fs-md);
-    line-height: 1em;
-    color: var(--txt-quaternary-clr);
-    z-index: 1;
-  }
-
-  div:first-of-type p {
-    position: absolute;
-    left: 1em;
-    top: 1em;
-    padding: 0.5rem;
-    font-weight: 600;
-    border-radius: var(--radius-lg);
-    color: var(--btn-primary-text-clr);
-    background-color: var(--btn-secondary-bg);
-  }
-  p {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: var(--fs-md);
-    color: var(--txt-dark-clr);
-  }
-
-  div:nth-of-type(2) > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: none;
-    gap: 0.2em;
-    padding: 0.9rem 0;
-  }
-
-  @media screen and (min-width: 48em) {
+  @media screen and (min-width: 768px) {
     article {
-      min-width: 500px;
-      height: 550px;
+      width: 80%;
+      max-width: 350px;
     }
+  }
 
-    div:nth-of-type(2) {
-      padding: 1em 2em;
-    }
+  article img {
+    position: relative;
+    background-color: black;
+    display: block;
+    object-fit: cover;
+    width: 350px;
+    height: 250px;
+    filter: brightness(0.5);
+  }
 
-    h3 {
-      font-size: var(--fs-xl);
-    }
+  h2 {
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
 
-    p {
-      font-size: var(--fs-lg);
+  .card-description {
+    padding-left: 0.5em;
+  }
+
+  li {
+    padding-top: 0.4em;
+  }
+
+  .card-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.9);
+    margin: 1em 1.5em 1em 0;
+    gap: 1em;
+  }
+
+  @media screen and (min-width: 768px) {
+    .card-buttons {
+      flex-direction: unset;
+      transform: none;
+      margin: 1em 1.6em 1em 1.6em;
+      padding-right: 15px;
+      gap: 2em;
     }
+  }
+
+  p:first-child {
+    padding-top: 0.3em;
+  }
+
+  span {
+    padding-left: 0.5em;
   }
 </style>
