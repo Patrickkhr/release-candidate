@@ -9,7 +9,6 @@
 </script>
 
 {#if href && variant === "primary"}
-  <!-- Als er een href is en variant is 'primary', render een <a> element -->
   <a
     {href}
     data-sveltekit-preload-data
@@ -25,7 +24,6 @@
     <slot></slot>
   </a>
 {:else if href && variant === "secondary"}
-  <!-- Als er een href is en variant is 'secondary', render een <a> element -->
   <a
     {href}
     data-sveltekit-preload-data
@@ -41,7 +39,6 @@
     <slot></slot>
   </a>
 {:else if href && variant === "tertiary"}
-  <!-- Als er een href is en variant is 'tertiary', render een <a> element -->
   <a
     {href}
     data-sveltekit-preload-data
@@ -57,7 +54,6 @@
     <slot></slot>
   </a>
 {:else if variant === "primary"}
-  <!-- Als er geen href is en variant is 'primary', render een <button> element -->
   <button {type} class="btn btn-primary btn-{size}" {...$$restProps} on:click>
     {title}
     {#if icon}
@@ -68,7 +64,6 @@
     <slot></slot>
   </button>
 {:else if variant === "secondary"}
-  <!-- Als er geen href is en variant is 'secondary', render een <button> element -->
   <button {type} class="btn btn-secondary btn-{size}" {...$$restProps} on:click>
     {title}
     {#if icon}
@@ -79,7 +74,6 @@
     <slot></slot>
   </button>
 {:else if variant === "tertiary"}
-  <!-- Als er geen href is en variant is 'tertiary', render een <button> element -->
   <button {type} class="btn btn-tertiary btn-{size}" {...$$restProps} on:click>
     {title}
     {#if icon}
@@ -100,7 +94,6 @@
     vertical-align: middle;
     justify-content: center;
     text-align: center;
-    /* letter-spacing: 1px; */
     line-height: var(--lh-1);
     text-decoration: none;
     padding: 0.7em 0.5em 0.7em 0.5em;
@@ -115,6 +108,12 @@
     transition:
       box-shadow 0.2s,
       transform 0.3s;
+  }
+
+  .btn:hover,
+  .btn:focus {
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+    transform: scale(1.1);
   }
 
   @media screen and (min-width: 768px) {
@@ -139,8 +138,6 @@
   .btn-secondary {
     border-radius: 0.4em;
     font-weight: 500;
-    /* color: var(--txt-primary-clr);
-    border: 2px solid var(--btn-primary-bg); */
     color: #3f2b21;
     border: 1.5px solid #3f2b21;
   }
@@ -156,16 +153,6 @@
     transition:
       box-shadow 0.2s,
       transform 0.3s;
-  }
-
-  .btn-secondary:hover,
-  .btn-secondary:focus,
-  .btn-primary:hover,
-  .btn-primary:focus,
-  .btn-tertiary:hover,
-  .btn-tertiary:focus {
-    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
-    transform: scale(1.1);
   }
 
   .btn-icon {

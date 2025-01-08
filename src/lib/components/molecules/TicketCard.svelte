@@ -31,8 +31,6 @@
       <img
         src={item.image.url}
         alt={item.image.title}
-        brdRadius="var(--radius-lg)"
-        opacity="0.6"
         loading="lazy"
         width="450"
         height="321"
@@ -64,9 +62,6 @@
         </li>
       </ul>
     </div>
-
-    <!-- Book Icon toevoegen -->
-
     <div class="card-buttons">
       <Button
         type="button"

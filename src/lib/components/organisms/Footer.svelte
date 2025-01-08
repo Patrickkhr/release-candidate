@@ -1,7 +1,7 @@
 <script>
-  import { Link, Image, Button, ArrowRight } from '$lib/index'
-  import logo from '$lib/assets/logo.webp'
-  export let footerItems
+  import { Link, Image, Button, ArrowRight } from "$lib/index";
+  import logo from "$lib/assets/logo.webp";
+  export let footerItems;
 </script>
 
 <footer class="footer">
@@ -30,7 +30,8 @@
         <ul aria-label="Footer" role="list">
           {#each footerItems[0].footerLinksCollection.items as item}
             <li>
-              <Link href={item.slug} aria-label={item.title} title={item.title}></Link>
+              <Link href={item.slug} aria-label={item.title} title={item.title}
+              ></Link>
             </li>
           {/each}
         </ul>
@@ -38,7 +39,11 @@
     </div>
     <div class="footer-newsletter">
       <h3 class="newsletter-title">{footerItems[0].newsletterTitle}</h3>
-      <form action="https://www.freecodecamp.org/email-submit" id="form" method="post">
+      <form
+        action="https://www.freecodecamp.org/email-submit"
+        id="form"
+        method="post"
+      >
         <label for="email">{footerItems[0].newsLetterDescription}</label>
         <input
           type="email"
@@ -73,9 +78,9 @@
     display: grid;
     gap: 3rem;
     grid-template-areas:
-      'form'
-      'nav'
-      'logo-social';
+      "form"
+      "nav"
+      "logo-social";
     padding-top: 4rem;
   }
 
@@ -125,7 +130,7 @@
   .footer-newsletter h3 {
     color: var(--accent2-primary);
   }
-  input:where([type='email']) {
+  input:where([type="email"]) {
     display: block;
     margin: 1rem 0;
     font-size: 1rem;
@@ -161,7 +166,7 @@
     }
 
     .footer-wrapper {
-      grid-template-areas: 'logo-social nav nav form';
+      grid-template-areas: "logo-social nav nav form";
     }
 
     .footer nav {

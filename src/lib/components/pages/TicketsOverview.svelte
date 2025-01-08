@@ -16,10 +16,6 @@
   <TicketCard {itemCollection} />
 </section>
 
-<svelte:head>
-  <title></title>
-</svelte:head>
-
 <style>
   .intro {
     margin-top: 8em;
