@@ -138,13 +138,13 @@
   .btn-secondary {
     border-radius: 0.4em;
     font-weight: 500;
-    color: #3f2b21;
-    border: 1.5px solid #3f2b21;
+    color: var(--page-bg-color);
+    border: 1.5px solid var(--accent1-primary);
   }
 
   .btn-tertiary {
-    background: #3f2b21;
-    color: #ffe5d9;
+    background: var(--page-bg-color);
+    color: var(--accent2-quaternary);
     justify-content: center;
   }
 

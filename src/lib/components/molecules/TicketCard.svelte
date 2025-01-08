@@ -90,7 +90,7 @@
   }
 
   .cocktail-price {
-    border: 1px solid #3f2b21;
+    border: 1px solid var(--accent1-primary);
     border-radius: 8px;
     padding: 0.2em;
   }
@@ -99,9 +99,8 @@
     display: block;
     width: 100%;
     max-width: 350px;
-    border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: #ffe5d9;
+    background-color: var(--txt-quaternary-clr);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
