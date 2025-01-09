@@ -1,7 +1,10 @@
 <script>
-  // export let items
-  import { TextInput, TextareaInput, DatePicker, TimePicker, IconPhoneThin, IconMailThin } from '$lib/index'
+  import { TextInput, TextareaInput, DatePicker, TimePicker, Image } from '$lib/index'
   import logo from '$lib/assets/logo.webp'
+  export let items
+
+  let FormulierInfo = items[3].componentsCollection.items;
+  let SocialIcons = items[4].componentsCollection.items;
 
   let isLoading = false;
   let isSuccess = false;
@@ -19,7 +22,7 @@
   }
 </script>
 
-<section>
+<section id="form">
   <form on:submit={handleSubmit} method="post" action="/group-bookings">
     <h1 class="animated-text">Boeken</h1>
     <TextInput id="first-name" name="first-name" required>Voornaam:</TextInput>
@@ -59,31 +62,35 @@
       <img src={logo} height="150" width="150" alt="Wogo Logo" />
     </div>
     <div>
-      <p><IconPhoneThin width="30" height="30" fill="white" />+31 641054495</p>
-      <p><IconMailThin width="30" height="30" fill="white" />info@wogoamsterdam</p>
+      {#each FormulierInfo as item}
+        <p>
+          {#if item.icon}
+            <Image
+              src={item.icon.url}
+              alt={item.icon.title}
+              width="30"
+              height="auto"
+              loading="lazy"
+            />
+          {/if}
+          {item.title}
+        </p>
+      {/each}
     </div>
     <ul class="social-media-list" role="list" aria-label="Social links">
-      <li>
-        <a href="/">
-          <svg width="50" height="50" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.6634 0C5.23174 0 0 5.23659 0 11.6699V28.3366C0 34.7683 5.23659 40 11.6699 40H28.3366C34.7683 40 40 34.7634 40 28.3301V11.6634C40 5.23174 34.7634 0 28.3301 0H11.6634ZM31.6667 6.66667C32.5867 6.66667 33.3333 7.41333 33.3333 8.33333C33.3333 9.25333 32.5867 10 31.6667 10C30.7467 10 30 9.25333 30 8.33333C30 7.41333 30.7467 6.66667 31.6667 6.66667ZM20 10C25.515 10 30 14.485 30 20C30 25.515 25.515 30 20 30C14.485 30 10 25.515 10 20C10 14.485 14.485 10 20 10ZM20 13.3333C18.2319 13.3333 16.5362 14.0357 15.286 15.286C14.0357 16.5362 13.3333 18.2319 13.3333 20C13.3333 21.7681 14.0357 23.4638 15.286 24.714C16.5362 25.9643 18.2319 26.6667 20 26.6667C21.7681 26.6667 23.4638 25.9643 24.714 24.714C25.9643 23.4638 26.6667 21.7681 26.6667 20C26.6667 18.2319 25.9643 16.5362 24.714 15.286C23.4638 14.0357 21.7681 13.3333 20 13.3333Z" fill="#FFAA81"/>
-          </svg>
-        </a>
-      </li>
-      <li>
-        <a href="/">
-          <svg width="50" height="50" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M36.3636 0H3.63636C1.62727 0 0 1.62727 0 3.63636V36.3636C0 38.3727 1.62727 40 3.63636 40H21.8182V23.6364H16.3636V18.1818H21.8182V15.2527C21.8182 9.70727 24.52 7.27273 29.1291 7.27273C31.3364 7.27273 32.5036 7.43636 33.0564 7.51091V12.7273H29.9127C27.9564 12.7273 27.2727 13.76 27.2727 15.8509V18.1818H33.0073L32.2291 23.6364H27.2727V40H36.3636C38.3727 40 40 38.3727 40 36.3636V3.63636C40 1.62727 38.3709 0 36.3636 0Z" fill="#FFAA81"/>
-          </svg>            
-        </a>
-      </li>
-      <li>
-        <a href="/">
-          <svg width="50" height="50" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M36.3636 0H3.63636C1.62727 0 0 1.62727 0 3.63636V36.3636C0 38.3727 1.62727 40 3.63636 40H36.3636C38.3727 40 40 38.3727 40 36.3636V3.63636C40 1.62727 38.3727 0 36.3636 0ZM12.6436 32.7273H7.28V15.4691H12.6436V32.7273ZM9.90727 13.0018C8.17818 13.0018 6.78 11.6 6.78 9.87455C6.78 8.14909 8.18 6.74909 9.90727 6.74909C11.6309 6.74909 13.0327 8.15091 13.0327 9.87455C13.0327 11.6 11.6309 13.0018 9.90727 13.0018ZM32.7345 32.7273H27.3745V24.3345C27.3745 22.3327 27.3382 19.7582 24.5873 19.7582C21.7964 19.7582 21.3673 21.9382 21.3673 24.1891V32.7273H16.0073V15.4691H21.1527V17.8273H21.2255C21.9418 16.4709 23.6909 15.04 26.3 15.04C31.7309 15.04 32.7345 18.6145 32.7345 23.2618V32.7273Z" fill="#FFAA81"/>
-          </svg> 
-        </a>
-      </li>
+      {#each SocialIcons as item}
+        <li>
+          <a href={item.slug}>
+            <Image
+              src={item.asset.url}
+              alt={item.asset.title}
+              width="50"
+              height="50"
+              loading="lazy"
+            />
+          </a>
+        </li>
+        {/each}
     </ul>
   </article>
 </section>

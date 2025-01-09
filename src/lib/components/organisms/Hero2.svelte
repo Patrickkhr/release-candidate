@@ -1,6 +1,12 @@
 <script>
-  import { Button, ArrowRight, RouteIcon, CocktailIcon, IconCocktailThin, IconCalendarThin, IconClockThin, IconLocationThin, IconTourcardThin, IconGroupThin, IconBrushThin, IconCutleryThin } from '$lib/index'
-  // export let items
+  import { Button, ArrowRight, Image } from '$lib/index'
+  export let items
+
+  let HeroText = items[0].componentsCollection.items[0];
+  let ButtonText = items[0].componentsCollection.items[1];
+  let BoekingsInfoL = items[1].componentsCollection.items;
+  let BoekingsInfoR = items[2].componentsCollection.items;
+
 </script>
 
 <section>
@@ -10,28 +16,27 @@
     muted
     width="1280"
     height="1000"
-    aria-label=""
+    aria-label="{HeroText.asset.description}"
     aria-hidden="true"
-    poster="/hero-image-background.webp"
+    poster={HeroText.asset.url}
   >
-    <!-- <source src="" type="video/webm" />
-    <source src="" type="video/webm" />
-    <source src="path/to/video-480p.mp4" type="video/mp4" media="(min-width: 480px)" />
-    <source src="path/to/video-360p.mp4" type="video/mp4" media="(max-width: 1280px)" /> -->
+    <source src={HeroText.asset.url} type="video/webm" />
+    <source src={HeroText.asset.url} type="video/webm" />
   </video>
   <div class="overlay"></div>
   <article class="hero-content">
     <h1>
-      GROEPSBOEKING
+      {HeroText.title}
     </h1>
     <div class="hero-description">
-      <p>Bedrijfsuitje, vrijgezellenfeest of vriendenactiviteit? De Cocktail Walk past perfect bij jou.</p>
+      <p>{HeroText.textParagraph}</p>
       <Button
         variant="primary"
-        title="Boek nu"
+        title={ButtonText.title}
         icon={ArrowRight}
         iconColor="var(--btn-primary-text-clr)"
         size="lg"
+        href={ButtonText.slug}
       />
     </div>
   </article>
@@ -39,16 +44,26 @@
 <section>
   <div>
     <article>
-      <p><IconLocationThin width="30" height="30" fill="white" />Amsterdam & Rotterdam</p>
-      <p><IconCocktailThin width="30" height="30" fill="white" />3 Cocktails</p>
-      <p><IconCalendarThin width="30" height="30" fill="white" />3 Barreseveringen</p>
-      <p><IconClockThin width="30" height="30" fill="white" />7 Dagen per week</p>
+      {#each BoekingsInfoL as item}
+        <p><Image
+          src={item.icon.url}
+          alt={item.icon.title}
+          width="30"
+          height="30"
+          loading="lazy"
+        />{item.title}</p>
+      {/each}
     </article>
     <article>
-      <p><IconTourcardThin width="30" height="30" fill="white" />Zelfgeleide tour van 3-4 uur</p>
-      <p><IconGroupThin width="30" height="30" fill="white" />Groepsgroottes 6-30 personen</p>
-      <p><IconBrushThin width="30" height="30" fill="white" />Gepersonaliseerde kaart & routes mogelijk</p>
-      <p><IconCutleryThin width="30" height="30" fill="white" />Snacks mogelijk</p>
+      {#each BoekingsInfoR as item}
+        <p><Image
+          src={item.icon.url}
+          alt={item.icon.title}
+          width="30"
+          height="30"
+          loading="lazy"
+        />{item.title}</p>
+      {/each}
     </article>
   </div>
 </section>
