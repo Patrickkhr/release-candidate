@@ -146,7 +146,7 @@
 
     & span {
       margin: var(--margin);
-      color: var(--title-primary);
+      color: var(--accent2-primary);
     }
     & img {
       position: absolute;
