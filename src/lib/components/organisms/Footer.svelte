@@ -1,5 +1,5 @@
 <script>
-  import { Link, CocktailIcon, Button, ArrowRight } from '$lib/index'
+  import { Link, CocktailIcon, Button, ArrowRight} from '$lib/index'
   import logo from '$lib/assets/logo.webp'
   import nix from '$lib/assets/nix-18.webp'
   export let footerItems
@@ -221,6 +221,9 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+  }
+  li{
+    margin-top: 0.5rem;
   }
 
   .line {
