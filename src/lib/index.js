@@ -56,6 +56,7 @@ export { default as HeaderDetailPage } from '$lib/components/organisms/HeaderDet
 export { default as GiftCard } from '$lib/components/organisms/GiftCard.svelte'
 export { default as BookingsForm } from '$lib/components/organisms/BookingsForm.svelte'
 export { default as Details } from '$lib/components/organisms/Details.svelte'
+export { default as Reviews } from '$lib/components/organisms/Reviews.svelte'
 
 
 // Templates
