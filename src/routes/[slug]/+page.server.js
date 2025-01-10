@@ -20,7 +20,6 @@ export async function load({ params, url }) {
               location
               asset {
                 url
-                title
                 description
               }   
             }

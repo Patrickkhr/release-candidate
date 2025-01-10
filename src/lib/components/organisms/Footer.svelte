@@ -72,6 +72,7 @@
         <h4>Social</h4>
         <!-- moet later dynamische content zijn in contentful -->
         {#each footerItems[0].socialMediaIconsCollection.items as item}
+
           <li>
             <Link
               href={item.url}
@@ -141,6 +142,7 @@
   h4 {
     font-family: 'LuloClean', sans-serif;
   }
+  
   footer {
     width: 100%;
     padding: 2em 5vw;
@@ -171,7 +173,7 @@
     margin-top: 1rem;
     width: 100%;
   }
-  input:where([type='email']) {
+  input:where([type="email"]) {
     display: block;
     margin: 1rem 0;
     font-size: 1rem;

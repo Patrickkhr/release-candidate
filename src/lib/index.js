@@ -26,6 +26,7 @@ export { default as IconBrushThin } from '$lib/components/atoms/icons/IconBrushT
 export { default as IconCutleryThin } from '$lib/components/atoms/icons/IconCutleryThin.svelte'
 export { default as IconPhoneThin } from '$lib/components/atoms/icons/IconPhoneThin.svelte'
 export { default as IconMailThin } from '$lib/components/atoms/icons/IconMailThin.svelte'
+export { default as BookIcon } from '$lib/components/atoms/icons/BookIcon.svelte'
 
 //Atoms / InputFields
 export { default as DatePicker } from '$lib/components/atoms/inputFields/DatePicker.svelte'
@@ -49,6 +50,7 @@ export { default as TicketCarousel } from '$lib/components/organisms/TicketCarou
 export { default as WhatWeDo } from '$lib/components/organisms/WhatWeDo.svelte'
 export { default as HowItWorks } from '$lib/components/organisms/HowItWorks.svelte'
 export { default as Footer } from '$lib/components/organisms/Footer.svelte'
+export { default as TabBar } from '$lib/components/organisms/TabBar.svelte'
 export { default as Filter } from '$lib/components/organisms/Filter.svelte'
 export { default as Header } from '$lib/components/organisms/Header.svelte'
 export { default as AboutThisWalk } from '$lib/components/organisms/AboutThisWalk.svelte'
@@ -57,7 +59,6 @@ export { default as GiftCard } from '$lib/components/organisms/GiftCard.svelte'
 export { default as BookingsForm } from '$lib/components/organisms/BookingsForm.svelte'
 export { default as Details } from '$lib/components/organisms/Details.svelte'
 export { default as Reviews } from '$lib/components/organisms/Reviews.svelte'
-
 
 // Templates
 

@@ -1,9 +1,9 @@
 <script>
-    import Scenery from '$lib/assets/about-us-scenery.jpg'
-    import Skyline from '$lib/assets/backdrop-skyline.png'
     import InfiniteCarrousel from '../organisms/InfiniteCarrousel.svelte'
+    import Scenery from '$lib/assets/about-us-scenery.jpg'
+    import Canvas from '../organisms/Canvas.svelte';
     import Title from '../atoms/Title.svelte'
-
+    
     export let items
     let content = items[3].componentsCollection.items
 </script>
@@ -48,19 +48,19 @@
     color='light' />
   <p>{content[0].textParagraph}</p>
   <span>{content[1].textParagraph}</span>
-  <img src={Skyline} alt="Cartoony skyline">
+  <Canvas />
 </section>
 
 <section id="information">
-    {#each items[4].componentsCollection.items as item}
-      <article>
-        <Title 
-          headertype='h3'
-          content='{item.title}' 
-          color='dark' />
-        <p class="initial">{item.textParagraph}</p>
-      </article>
-    {/each}
+  {#each items[4].componentsCollection.items as item}
+    <article>
+      <Title 
+        headertype='h3'
+        content='{item.title}' 
+        color='dark' />
+      <p class="initial">{item.textParagraph}</p>
+    </article>
+  {/each}
 </section>
 
 <style>
@@ -146,7 +146,7 @@
 
     & span {
       margin: var(--margin);
-      color: var(--txt-secondary-clr);
+      color: var(--accent2-primary);
     }
     & img {
       position: absolute;
@@ -157,15 +157,17 @@
   /* 'Informatie' section */
   #information {
     background: var(--accent2-primary);
-    min-height: fit-content;
     flex-direction: row;
     flex-wrap: wrap;
+    height: 70vh;
 
     & article {
-      margin: var(--margin);
+      width: 25%;
+      margin: 0 calc(var(--margin) * 2);
 
       & p {
-        max-width: 36ch;
+        max-width: 38ch;
+        color: var(--btn-primary-text-clr);
       }
     }
   }
@@ -178,6 +180,10 @@
     #about div {
       width: 100%;
       margin: var(--margin) 0;
+    }
+    #information article {
+      width: 100%;
+      margin: 0 calc(var(--margin) - 0.75rem);
     }
   }
 </style>
