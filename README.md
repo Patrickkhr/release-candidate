@@ -99,6 +99,7 @@ Using Contentful in your Sveltekit project: <br>
 
 ## Licentie
 
-This project is licensed under the terms of the [MIT license](./LICENSE). <br>
+This project is licensed under the terms of the [MIT license](./LICENSE).
+
 <img width="100" src="https://github.com/user-attachments/assets/e57fb644-6a2d-4902-96da-3ded922e28ec">
 
