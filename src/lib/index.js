@@ -45,6 +45,7 @@ export { default as HeaderContent } from '$lib/components/molecules/HeaderConten
 // Organisms
 export { default as Hero } from '$lib/components/organisms/Hero.svelte'
 export { default as Hero2 } from '$lib/components/organisms/Hero2.svelte'
+export { default as FAQuestions } from '$lib/components/organisms/FAQuestions.svelte'
 export { default as TicketCarousel } from '$lib/components/organisms/TicketCarousel.svelte'
 export { default as WhatWeDo } from '$lib/components/organisms/WhatWeDo.svelte'
 export { default as HowItWorks } from '$lib/components/organisms/HowItWorks.svelte'
@@ -62,6 +63,7 @@ export { default as BookingsForm } from '$lib/components/organisms/BookingsForm.
 // Pages
 export { default as WorkWithUs } from '$lib/components/pages/WorkWithUs.svelte'
 export { default as HomePage } from '$lib/components/pages/Home.svelte'
+export { default as FAQ } from '$lib/components/pages/FAQ.svelte'
 export { default as GroupOutings } from '$lib/components/pages/GroupOutings.svelte'
 export { default as TicketInfoPage } from '$lib/components/pages/TicketInfoPage.svelte'
 export { default as TicketsOverview } from '$lib/components/pages/TicketsOverview.svelte'
