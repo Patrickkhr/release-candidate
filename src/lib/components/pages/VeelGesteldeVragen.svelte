@@ -8,9 +8,9 @@
 
 <section id="FAQ">
     {#each items[0].componentsCollection.items as item}
-      <article>
-        <p>{item.textTitle}</p>
+      <details>
+        <summary>{item.title}</summary>
         <p>{item.textParagraph}</p>
-      </article>
+      </details>
     {/each}
 </section>
