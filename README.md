@@ -49,18 +49,16 @@ Op de WOGO website kan je onder andere op de homepagina meer informatie vinden o
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
 ### De gebruikte technieken:
-* HTML/CSS
-* JS
-* Component library (atomic design)
-* Accessibility
-* Responsiveness (mobile first)
-* Performance
-* Progressive Enhancement
+- RAP/PE Methode _(Responsive, Accessible, Performance, Progressive Enhanced)_
+- Mobile First
+
+[![HTML](https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white)](#) 
+[![CSS](https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff)](#) 
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#)
 
 ### Tech-stack
-* Sveltekit
-* Contentful
-
+[![SvelteKit](https://img.shields.io/badge/SvelteKit-%23f1413d.svg?logo=svelte&logoColor=white)](#)
+[![Contentful](https://img.shields.io/badge/Contentful-2478CC?logo=contentful&logoColor=fff)](#)
 
 ##  Installatie
 
@@ -90,9 +88,17 @@ Klik op de LocalHost link om je dev-server te openen.
 ````
 
 ## Bronnen
-[SvelteKit docs](https://kit.svelte.dev/docs/introduction)     
+General Sveltekit Docs: <br>
+[SvelteKit Docs](https://kit.svelte.dev/docs/introduction)   
+
+General Contentful Docs: <br>
+[Contentful Docs](https://www.contentful.com/developers/docs/)
+
+Using Contentful in your Sveltekit project: <br>
 [Sveltekit and Contentful](https://www.contentful.com/sveltekit-starter-guide/)
 
 ## Licentie
 
-This project is licensed under the terms of the [MIT license](./LICENSE).
+This project is licensed under the terms of the [MIT license](./LICENSE). <br>
+<img width="100" src="https://github.com/user-attachments/assets/e57fb644-6a2d-4902-96da-3ded922e28ec">
+
