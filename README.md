@@ -64,12 +64,30 @@ Op de WOGO website kan je onder andere op de homepagina meer informatie vinden o
 
 ##  Installatie
 
-1. Clone dit project
-2. Open dit project in je editor
-3. Run npm install in de terminal
-4. Run npm run dev in de terminal
-5. Open de link op de localhost.
+### Stap 1 
+Clone dit project.
 
+### Stap 2
+Open dit project in je editor. _(Bijvoorbeeld Visual Studio Code)_
+
+### Stap 3
+Voeg de environment variables toe in een `.env` bestand. _(Vraag deze aan de maker van dit project)_
+
+### Stap 4
+Run de volgende commands in je Terminal. _(CTRL + `)_
+````
+  npm install
+  npm run dev
+````
+### Stap 5
+Klik op de LocalHost link om je dev-server te openen.
+````
+  VITE v5.2.12  ready in 923 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.178.29:5173/
+  ➜  press h + enter to show help
+````
 
 ## Bronnen
 [SvelteKit docs](https://kit.svelte.dev/docs/introduction)     
