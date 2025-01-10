@@ -1,5 +1,5 @@
 <script>
-  import { Hero, TicketCarousel, HowItWorks, HeadLine, WhatWeDo, GiftCard } from '$lib/index'
+  import { Hero, Reviews, TicketCarousel, HowItWorks, HeadLine, WhatWeDo, GiftCard } from '$lib/index'
   export let items
   export let itemCollection
 </script>
@@ -9,6 +9,7 @@
 </svelte:head>
 
 <Hero {items} />
+<Reviews {items} />
 <TicketCarousel {itemCollection} />
 <HeadLine title="How It Works" />
 <HowItWorks {items} />
