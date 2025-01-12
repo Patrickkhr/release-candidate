@@ -1,6 +1,6 @@
 <script>
   // All images
-  import { Vibe, Lillet, Pernod, Bacardi, Hendricks, London, Absolut, CocaCola, Passoa } from '$lib/assets/partners.js' 
+  import { Vibe, Lillet, Pernod, Bacardi, Hendricks, London, Absolut, CocaCola, Passoa } from '$lib/assets/partners.js';
   import Logo from "../atoms/Logo.svelte";
 
   // Adjustable aria-attribute

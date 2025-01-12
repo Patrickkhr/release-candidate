@@ -5,7 +5,9 @@
 </script>
 
 <li>
-  <img src={source} alt={alt}>
+  <img loading="lazy" 
+       alt={alt}
+       src={source}>
 </li>
 
 <style>

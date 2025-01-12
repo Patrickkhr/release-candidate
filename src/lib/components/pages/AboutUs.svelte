@@ -1,6 +1,6 @@
 <script>
     import InfiniteCarrousel from '../organisms/InfiniteCarrousel.svelte'
-    import Scenery from '$lib/assets/about-us-scenery.jpg'
+    import Scenery from '$lib/assets/about-us-scenery.webp'
     import Canvas from '../organisms/Canvas.svelte';
     import Title from '../atoms/Title.svelte'
     
@@ -108,6 +108,7 @@
         max-width: 60%;
         aspect-ratio: 1;
         object-fit: cover;
+        background: white;
       }
     }
   }
