@@ -96,6 +96,17 @@
   #about {
     flex-direction: row;
 
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    & div {
+      @media (max-width: 768px) {
+        width: 100%;
+        margin: var(--margin) 0;
+      }
+    }
+
     & div, article {
       width: 50%;
       display: flex;
@@ -165,25 +176,15 @@
       width: 25%;
       margin: 0 calc(var(--margin) * 2);
 
+      @media (max-width: 768px) {
+        width: 100%;
+        margin: 0 calc(var(--margin) - 0.75rem);
+      }
+
       & p {
         max-width: 38ch;
         color: var(--btn-primary-text-clr);
       }
-    }
-  }
-  
-  /* Media Query for small-screens */
-  @media (max-width: 768px) {
-    #about {
-      flex-direction: column;
-    }
-    #about div {
-      width: 100%;
-      margin: var(--margin) 0;
-    }
-    #information article {
-      width: 100%;
-      margin: 0 calc(var(--margin) - 0.75rem);
     }
   }
 </style>
