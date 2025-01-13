@@ -23,6 +23,14 @@
   .logo-container {
     display: inline-block;
     animation: 35s slide infinite linear;
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+      
+      &:last-of-type {
+        display: none;
+      }
+    }
   }
 
   /* Infinite animation for the carrousel */
@@ -32,17 +40,6 @@
     }
     to {
       transform: translateX(-100%);
-    }
-  }
-
-  /* Media Query for users with reduced-motion enabled */
-  /* (Didnt use the 'no-preference' for a reason) */  
-  @media (prefers-reduced-motion) {
-    .logo-container {
-      animation: none;
-    }
-    .logo-container:last-of-type {
-      display: none;
     }
   }
 </style>
