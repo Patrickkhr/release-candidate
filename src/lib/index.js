@@ -43,6 +43,7 @@ export { default as TicketDetails } from '$lib/components/molecules/TicketDetail
 export { default as HeaderContent } from '$lib/components/molecules/HeaderContent.svelte'
 
 // Organisms
+export { default as RotterdamTicketHero } from '$lib/components/organisms/RotterdamTicketHero.svelte'
 export { default as Hero } from '$lib/components/organisms/Hero.svelte'
 export { default as Hero2 } from '$lib/components/organisms/Hero2.svelte'
 export { default as TicketCarousel } from '$lib/components/organisms/TicketCarousel.svelte'
@@ -56,10 +57,13 @@ export { default as AboutThisWalk } from '$lib/components/organisms/AboutThisWal
 export { default as HeaderDetailPage } from '$lib/components/organisms/HeaderDetailPage.svelte'
 export { default as GiftCard } from '$lib/components/organisms/GiftCard.svelte'
 export { default as BookingsForm } from '$lib/components/organisms/BookingsForm.svelte'
+export { default as Details } from '$lib/components/organisms/Details.svelte'
+export { default as Reviews } from '$lib/components/organisms/Reviews.svelte'
 
 // Templates
 
 // Pages
+export { default as RotterdamTickets } from '$lib/components/pages/RotterdamTickets.svelte'
 export { default as WorkWithUs } from '$lib/components/pages/WorkWithUs.svelte'
 export { default as HomePage } from '$lib/components/pages/Home.svelte'
 export { default as FrequentlyAsked } from '$lib/components/pages/FrequentlyAsked.svelte'

@@ -49,32 +49,57 @@ Op de WOGO website kan je onder andere op de homepagina meer informatie vinden o
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
 ### De gebruikte technieken:
-* HTML/CSS
-* JS
-* Component library (atomic design)
-* Accessibility
-* Responsiveness (mobile first)
-* Performance
-* Progressive Enhancement
+- RAP/PE Methode _(Responsive, Accessible, Performance, Progressive Enhanced)_
+- Mobile First
+
+[![HTML](https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white)](#) 
+[![CSS](https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff)](#) 
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#)
 
 ### Tech-stack
-* Sveltekit
-* Contentful
-
+[![SvelteKit](https://img.shields.io/badge/SvelteKit-%23f1413d.svg?logo=svelte&logoColor=white)](#)
+[![Contentful](https://img.shields.io/badge/Contentful-2478CC?logo=contentful&logoColor=fff)](#)
 
 ##  Installatie
 
-1. Clone dit project
-2. Open dit project in je editor
-3. Run npm install in de terminal
-4. Run npm run dev in de terminal
-5. Open de link op de localhost.
+### Stap 1 
+Clone dit project.
 
+### Stap 2
+Open dit project in je editor. _(Bijvoorbeeld Visual Studio Code)_
+
+### Stap 3
+Voeg de environment variables toe in een `.env` bestand. _(Vraag deze aan de maker van dit project)_
+
+### Stap 4
+Run de volgende commands in je Terminal. _(CTRL + `)_
+````
+  npm install
+  npm run dev
+````
+### Stap 5
+Klik op de LocalHost link om je dev-server te openen.
+````
+  VITE v5.2.12  ready in 923 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.178.29:5173/
+  ➜  press h + enter to show help
+````
 
 ## Bronnen
-[SvelteKit docs](https://kit.svelte.dev/docs/introduction)     
+General Sveltekit Docs: <br>
+[SvelteKit Docs](https://kit.svelte.dev/docs/introduction)   
+
+General Contentful Docs: <br>
+[Contentful Docs](https://www.contentful.com/developers/docs/)
+
+Using Contentful in your Sveltekit project: <br>
 [Sveltekit and Contentful](https://www.contentful.com/sveltekit-starter-guide/)
 
 ## Licentie
 
 This project is licensed under the terms of the [MIT license](./LICENSE).
+
+<img width="100" src="https://github.com/user-attachments/assets/e57fb644-6a2d-4902-96da-3ded922e28ec">
+

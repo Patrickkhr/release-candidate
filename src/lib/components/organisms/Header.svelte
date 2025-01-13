@@ -1,13 +1,52 @@
 <script>
+  import { onMount } from 'svelte'
   import { Link, CartIcon, ArrowDown, Button } from '$lib/index'
   import logo from '$lib/assets/logo.webp'
   export let navigation
+
+  // custom js
+  onMount(() => {
+    const mediaQuery = window.matchMedia('(max-width: 65rem)'),
+      mobileMenu = document.querySelector('.mobileMenu'),
+      hider = document.querySelector('.mobileHide'),
+      openMenuBtn = document.getElementById('mainMenuOpen'),
+      closeMenuBtn = document.getElementById('mobileMenuClose')
+
+    // toggle mobile menu & desktop menu
+    function updateMenu() {
+      if (mediaQuery.matches) {
+        hider.style.display = 'none'
+        openMenuBtn.style.display = 'block'
+        console.log(9)
+      } else {
+        hider.style.display = 'block'
+        openMenuBtn.style.display = 'none'
+      }
+    }
+
+    updateMenu()
+    mediaQuery.addEventListener('change', updateMenu)
+
+    // open & closing mobile menu
+    openMenuBtn.addEventListener('click', showing)
+
+    function showing() {
+      mobileMenu.classList.remove('hiding')
+      mobileMenu.classList.add('showing')
+    }
+
+    closeMenuBtn.addEventListener('click', hiding)
+    function hiding() {
+      mobileMenu.classList.remove('showing')
+      mobileMenu.classList.add('hiding')
+    }
+  })
 </script>
 
 <header>
   <span class="skip-link">
     <Button
-      variant="primary"
+      variant="secondair"
       href="#content"
       title="skip to content"
       size="lg"
@@ -15,25 +54,23 @@
       data-sveltekit-preload-data="false"
     />
   </span>
-  <img src={logo} height="70" width="70" alt="Wogo Logo" class="color-logo" />
-  <button type="button" id="mainMenuOpen" tabindex="-1" aria-label="hamburger-button"
-    ><span></span></button
-  >
+  <img src={logo} height="70" width="70" alt="Wogo Logo" />
+  <button type="button" id="mainMenuOpen" aria-label="hamburger-button"><span></span></button>
   <nav>
-    <ul>
+    <ul class="mobileHide">
       {#each navigation.navigationLinksCollection.items as link}
         {#if link.title === 'More'}
           <li class="more-button">
-            <Button variant="primary" title="more" icon={ArrowDown} size="m" />
+            <button>
+              <span class="btn-icon">
+                More
+                <ArrowDown />
+              </span>
+            </button>
             <ul class="more-dropdown">
               {#each link.subLinksCollection.items as sublink}
                 <li>
-                  <Link
-                    href={sublink.slug}
-                    title={sublink.title}
-                    aria-label={sublink.label}
-                    color="var(--txt-dark-clr)"
-                  />
+                  <Link href={sublink.slug} title={sublink.title} aria-label={sublink.label} />
                 </li>
               {/each}
             </ul>
@@ -44,7 +81,7 @@
               href={link.slug}
               title={link.title}
               arialabel={link.label}
-              color="var(--txt-secondary-clr)"
+              color="var(--txt-primary-clr)"
               filter="var(--filter-drop)"
             />
             {#if link.subLinksCollection.items.length > 0}
@@ -66,6 +103,56 @@
       {/each}
     </ul>
   </nav>
+  <section class="mobileMenu">
+    <nav>
+      <ul>
+        {#each navigation.navigationLinksCollection.items as link}
+          {#if link.title === 'More'}
+            <li class="more-button">
+              <button class="">
+                <span class="btn-icon">
+                  More
+                  <ArrowDown />
+                </span>
+              </button>
+              <ul class="more-dropdown">
+                {#each link.subLinksCollection.items as sublink}
+                  <li>
+                    <Link href={sublink.slug} title={sublink.title} aria-label={sublink.label} />
+                  </li>
+                {/each}
+              </ul>
+            </li>
+          {:else}
+            <li>
+              <Link
+                href={link.slug}
+                title={link.title}
+                arialabel={link.label}
+                color="var(--txt-primary-clr)"
+                filter="var(--filter-drop)"
+              />
+              {#if link.subLinksCollection.items.length > 0}
+                <ul class="sub-menu" aria-label="Submenu">
+                  {#each link.subLinksCollection.items as sublink}
+                    <li>
+                      <Link
+                        href={sublink.slug}
+                        title={sublink.title}
+                        aria-label={sublink.label}
+                        color="var(--txt-dark-clr)"
+                      />
+                    </li>
+                  {/each}
+                </ul>
+              {/if}
+            </li>
+          {/if}
+        {/each}
+      </ul>
+    </nav>
+    <button type="button" id="mobileMenuClose" aria-label="close-menu-button"><span></span></button>
+  </section>
   <div class="button-cart-container">
     <CartIcon width="60px" height="60px" fill="var(--accent2-primary)" />
   </div>
@@ -88,7 +175,8 @@
 
   header {
     display: flex;
-    position: fixed;
+    position: sticky;
+    background-color: #221714;
     top: 0;
     right: 0;
     left: 0;
@@ -99,7 +187,7 @@
     z-index: 900;
   }
 
-  #mainMenuOpen {
+  :global(.mobileMenu, #mainMenuOpen) {
     display: none;
   }
 
@@ -111,7 +199,7 @@
 
   nav li {
     position: relative;
-    font-size: var(--fs-lg);
+    font-size: var(--fs-md);
     text-transform: lowercase;
     padding: 0.5rem 1rem;
   }
@@ -125,6 +213,26 @@
 
   .more-button {
     position: relative;
+  }
+
+  .more-button button {
+    width: 5rem;
+    background: none;
+    font-size: var(--fs-md);
+    border: none;
+    padding: 0;
+    color: var(--txt-primary-clr);
+  }
+
+  .btn-icon {
+    display: flex;
+    flex-wrap: nowrap;
+    fill: #ffe5d9;
+  }
+
+  :global(.more-button svg) {
+    height: 0.7em;
+    stroke: currentColor;
   }
 
   .more-dropdown {
@@ -181,15 +289,42 @@
     gap: 2rem;
   }
 
-  @media (max-width: 65em) {
+  @media (max-width: 65rem) {
+    .mobileHide {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
     header {
       justify-content: 0;
     }
+    :global(.mobileMenu) {
+      display: none;
+      position: absolute;
+      height: 100vh;
+      width: 100vw;
+      left: 0;
+      top: -100vh;
+      background: var(--page-bg-color);
+      z-index: 999;
+    }
+
+    .mobileMenu nav {
+      margin-top: 20%;
+    }
+    .mobileMenu nav li {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      width: 40vw;
+      padding-top: 2rem;
+      font-size: 2rem;
+    }
 
     #mainMenuOpen {
-      display: block;
+      display: none;
       width: 40px;
-      height: 3px;
+      height: 30px;
       flex-grow: 0;
       border: 0;
       background: transparent;
@@ -207,6 +342,7 @@
       height: 3px;
       background: var(--accent2-primary);
       border-radius: var(--radius-lg);
+      z-index: 998;
     }
     #mainMenuOpen span::before {
       margin-top: -12px;
@@ -220,47 +356,41 @@
       top: -8px;
     }
 
-    #mainMenuOpen + nav {
-      position: fixed;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      background: var(--page-bg-color);
-      transition:
-        top 2s 0.5s,
-        opacity 0.5s;
-    }
-    #mainMenuOpen:focus + nav,
-    #mainMenuOpen + nav:focus-within {
-      left: 0;
-      opacity: 1;
-      transition:
-        top 0s,
-        opacity 0.5s;
-    }
-
-    #mainMenuOpen + nav li {
-      display: flex;
-      flex-direction: column;
-      font-size: var(--fs-xl);
-      padding: 1rem 0 1rem 0;
-    }
-
-    #mainMenuOpen + nav > ul:after {
-      content: '\2715';
-      color: var(--txt-primary-clr);
+    #mobileMenuClose {
       display: block;
       position: absolute;
-      top: 1.5rem;
-      right: 1.2rem;
-      font-size: 2.5rem;
+      width: 40px;
+      height: 35px;
+      flex-grow: 0;
+      border: 0;
+      background: transparent;
       cursor: pointer;
+      order: 4;
+      right: 2rem;
+      top: 2rem;
+    }
+    #mobileMenuClose span,
+    #mobileMenuClose span::after {
+      display: block;
+      position: absolute;
+      content: '';
+      width: 40px;
+      height: 3px;
+      background: var(--accent2-primary);
+      border-radius: var(--radius-lg);
+    }
+
+    #mobileMenuClose span {
+      rotate: 45deg;
+    }
+
+    #mobileMenuClose span::after {
+      rotate: 90deg;
+    }
+
+    .button-cart-container {
+      display: flex;
+      margin: 0 auto;
     }
 
     div {
@@ -269,6 +399,46 @@
       gap: 1rem;
       position: relative;
       top: 5px;
+    }
+    :global(.showing) {
+      top: 0vh;
+      display: block;
+    }
+    :global(.hiding) {
+      display: none;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      :global(.showing) {
+        animation: shower 1s forwards;
+        top: -100vh;
+        display: block;
+      }
+      @keyframes shower {
+        0% {
+          transform: translateY(0vh);
+        }
+        100% {
+          transform: translateY(100vh);
+        }
+      }
+      :global(.hiding) {
+        animation: hider 1s forwards;
+      }
+      @keyframes hider {
+        0% {
+          display: block;
+          transform: translateY(100vh);
+        }
+        100% {
+          display: none;
+          transform: translateY(0vh);
+        }
+      }
+    }
+  }
+  @media (max-width: 35rem) {
+    .mobileMenu nav li {
+      font-size: 1.5rem;
     }
   }
 </style>

@@ -1,131 +1,177 @@
 <script>
-  import { Link, Image, Button, ArrowRight } from "$lib/index";
-  import logo from "$lib/assets/logo.webp";
-  export let footerItems;
+  import { Link, CocktailIcon, Button, ArrowRight} from '$lib/index'
+  import logo from '$lib/assets/logo.webp'
+  import nix from '$lib/assets/nix-18.webp'
+  export let footerItems
 </script>
 
-<footer class="footer">
-  <div class="footer-wrapper">
-    <div class="footer-logo-social">
-      <ul class="social-media-list" role="list" aria-label="Social links">
+<footer>
+  <!-- LOGO -->
+  <img src={logo} height="50" width="50" alt="onder navigatie" />
+
+  <section>
+    <!-- NIEUWSBRIEF -->
+    <!-- form veranderen met molecule van patrick -->
+    <form>
+      <legend>{footerItems[0].newsletterTitle}</legend>
+      <p>{footerItems[0].newsLetterDescription}</p>
+
+      <label>
+        Email*
+        <!-- input veranderen met atom van patrick -->
+        <input type="email" name="email" placeholder={footerItems[0].placeholderText} required />
+      </label>
+      <Button
+        type="submit"
+        variant="primary"
+        title="Abonneer"
+        icon={ArrowRight}
+        iconColor="var(--btn-primary-text-clr)"
+        size="sm"
+      />
+    </form>
+
+    <!-- Navigatie -->
+    <nav>
+      <ul>
+        <h4>Navigatie</h4>
+        <!-- moet later dynamische content zijn in contentful -->
+        {#each footerItems[0].footerLinksCollection.items as item}
+          <li>
+            <Link
+              href={item.slug}
+              aria-label={item.title}
+              title={item.title}
+              fontSize="1rem"
+              color="var(--txt-primary-clr)"
+              decoration="underline"
+            ></Link>
+          </li>
+        {/each}
+      </ul>
+
+      <ul>
+        <h4>Bronnen</h4>
+        <!-- moet later dynamische content zijn in contentful -->
+        {#each footerItems[0].footerLinksCollection.items as item}
+          <!-- moet later andere links zijn -->
+          <li>
+            <Link
+              href={item.slug}
+              aria-label={item.title}
+              title={item.title}
+              fontSize="1rem"
+              color="var(--txt-primary-clr)"
+              decoration="underline"
+            ></Link>
+          </li>
+        {/each}
+      </ul>
+
+      <ul>
+        <h4>Social</h4>
+        <!-- moet later dynamische content zijn in contentful -->
         {#each footerItems[0].socialMediaIconsCollection.items as item}
-          <li class="color-logo">
-            <Link href={item.url}>
-              <Image
-                src={item.assetCollection.items[0].url}
-                height="50"
-                width="50"
-                alt={item.assetCollection.items[0].title}
-                loading="lazy"
-              />
+
+          <li>
+            <Link
+              href={item.url}
+              fontSize="1rem"
+              aria-label={item.title}
+              color="var(--txt-primary-clr)"
+              decoration="underline"
+            >
+              {item.assetCollection.items[0].title}
             </Link>
           </li>
         {/each}
       </ul>
-      <p class="footer-text">Follow us:</p>
-      <img src={logo} height="100" width="100" alt="Wogo Logo" class="color-logo" />
-    </div>
-    <div class="footer-section">
-      <nav>
-        <ul aria-label="Footer" role="list">
-          {#each footerItems[0].footerLinksCollection.items as item}
-            <li>
-              <Link href={item.slug} aria-label={item.title} title={item.title}
-              ></Link>
-            </li>
-          {/each}
-        </ul>
-      </nav>
-    </div>
-    <div class="footer-newsletter">
-      <h3 class="newsletter-title">{footerItems[0].newsletterTitle}</h3>
-      <form
-        action="https://www.freecodecamp.org/email-submit"
-        id="form"
-        method="post"
-      >
-        <label for="email">{footerItems[0].newsLetterDescription}</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder={footerItems[0].placeholderText}
-          required
-        />
-        <Button
-          type="submit"
-          variant="primary"
-          title="Subscribe"
-          icon={ArrowRight}
-          iconColor="var(--btn-primary-text-clr)"
-          size="sm"
-        />
-      </form>
-    </div>
+
+      <ul class="review">
+        <h4>Review ons</h4>
+        <!-- moet later dynamische content zijn in contentful -->
+        <li>
+          <form
+            aria-label="review ons op Tripadvisor"
+            class="feedback"
+            action="https://www.tripadvisor.nl/Attraction_Review-g188590-d25182767-Reviews-Cocktail_Walk-Amsterdam_North_Holland_Province.html"
+          >
+            <!-- mogelijk nog een ander icon op de deze knoppen -->
+            <Button
+              type="submit"
+              variant="primary"
+              title="Tripadvisor"
+              icon={CocktailIcon}
+              iconColor="var(--btn-primary-text-clr)"
+              size="sm"
+            />
+          </form>
+        </li>
+        <li>
+          <form
+            class="feedback"
+            aria-label="review ons op Trustpilot"
+            action="https://uk.trustpilot.com/review/wogoamsterdam.com?utm_medium=trustbox&utm_source=TrustBoxReviewCollector"
+          >
+            <Button
+              type="submit"
+              variant="primary"
+              title="Trustpilot"
+              icon={CocktailIcon}
+              iconColor="var(--btn-primary-text-clr)"
+              size="sm"
+            />
+          </form>
+        </li>
+      </ul>
+    </nav>
+  </section>
+
+  <div class="line"></div>
+
+  <!-- COPYRIGHT -->
+  <div>
+    <!-- jaartal moet later dynamische content zijn in contentful -->
+    <p><small>© 2024 WOGO Amsterdam. Alle rechten voorbehouden.</small></p>
+    <img src={nix} height="30" width="90" alt="nix 18 is niet voor niks" />
   </div>
 </footer>
 
 <style>
-  /* Mobile  */
+  legend,
+  h4 {
+    font-family: 'LuloClean', sans-serif;
+  }
+  
   footer {
-    padding: 0 5vw;
+    width: 100%;
+    padding: 2em 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    background-color: var(--accent1-tertiary);
+    color: var(--txt-tertiary-clr);
   }
-
-  .footer-wrapper {
+  h4 {
+    font-size: 1em;
+    line-height: 2em;
+    margin-bottom: 0.5em;
+  }
+  legend {
+    font-size: 1.7em;
+  }
+  form {
     display: grid;
-    gap: 3rem;
-    grid-template-areas:
-      "form"
-      "nav"
-      "logo-social";
-    padding-top: 4rem;
-  }
+    gap: 1em;
+    width: 100%;
 
-  .footer-logo-social {
-    grid-area: logo-social;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    gap: 0.5rem;
+    @media screen and (min-width: 48em) {
+      width: 30rem;
+    }
   }
-
-  footer nav {
-    grid-area: nav;
-    columns: 2;
-    gap: clamp(1rem, 30vw, 2rem);
-  }
-
-  .footer-text {
-    margin: 0.625rem 0;
-    color: var(--accent2-quaternary);
-  }
-
-  footer li {
-    padding: 1rem;
-    font-size: var(--fs-md);
-    text-transform: lowercase;
-    list-style: none;
-    color: var(--accent2-tertiary);
-  }
-
-  .social-media-list {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  /* Footer newsletter */
-  .footer-newsletter {
-    grid-area: form;
-    flex: 0 1 340px;
-  }
-
-  label {
-    color: var(--accent2-quaternary);
-  }
-
-  .footer-newsletter h3 {
-    color: var(--accent2-primary);
+  .feedback {
+    margin-top: 1rem;
+    width: 100%;
   }
   input:where([type="email"]) {
     display: block;
@@ -143,28 +189,50 @@
     color: var(--accent1-tertiary);
   }
 
-  .footer-text,
-  .newsletter-title {
-    margin-bottom: 1rem;
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em 5em;
+    justify-content: space-evenly;
+
+    @media screen and (min-width: 48em) {
+      flex-wrap: nowrap;
+    }
   }
 
-  /* Desktop */
-  @media screen and (min-width: 48em) {
-    footer {
-      padding: 0 3vw;
-      padding-bottom: 3vw;
-    }
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
 
-    .footer-wrapper {
-      grid-template-areas: "logo-social nav nav form";
+    @media screen and (min-width: 48em) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5em;
+      width: 100%;
     }
+  }
 
-    .footer nav {
-      gap: clamp(2rem, 30vw, 4rem);
-    }
+  ul {
+    list-style: none;
+  }
 
-    .footer-wrapper > * {
-      margin-inline: auto;
-    }
+  div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  li{
+    margin-top: 0.5rem;
+  }
+
+  .line {
+    width: 90%;
+    margin: 0 auto;
+    height: 0.5px;
+    border: 0;
+    background-color: var(--accent2-quaternary);
   }
 </style>
