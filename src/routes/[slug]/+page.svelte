@@ -1,5 +1,5 @@
 <script>
-  import { WorkWithUs, HomePage, VeelGesteldeVragen, GroupOutings, TicketsOverview, AboutUs } from '$lib/index';
+  import { WorkWithUs, HomePage, FrequentlyAsked, GroupOutings, TicketsOverview, AboutUs } from '$lib/index';
   export let data;
 
   const componentMap = {
@@ -8,7 +8,7 @@
     'work-with-us': WorkWithUs,
     'group-bookings': GroupOutings,
     'about-us': AboutUs,
-    'faq': VeelGesteldeVragen,
+    'faq': FrequentlyAsked,
   };
 
   const items = data.pageData.find(
