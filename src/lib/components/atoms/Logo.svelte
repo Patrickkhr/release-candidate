@@ -5,9 +5,10 @@
 </script>
 
 <li>
-  <img loading="lazy" 
-       alt={alt}
-       src={source}>
+  <picture>
+    <source srcset="/images/{source}.webp">
+    <img loading="lazy" src="/images/{source}.png" alt={alt} >
+  </picture>
 </li>
 
 <style>
