@@ -1,10 +1,10 @@
 <script>
   import { Button, ArrowRight, Image } from '$lib/index'
-  export let items
+  export let WhatWeDo
 </script>
 
 <section id="main">
-  {#each items[2].componentsCollection.items as item}
+  {#each WhatWeDo as item}
     <article>
       <Image
         src={item.asset.url}

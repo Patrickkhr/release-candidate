@@ -1,18 +1,19 @@
 <script>
-  export let items
+  export let cards
+  
 </script>
 
 <section>
   <ul>
     <li class="card-list card-number">
       <div class="card-body" tabIndex="0">
-          {#each items[1].componentsCollection.items as item, index}
+          {#each cards as card, index}
           <div class="text-content">
             <div class="span-cirkel">
               <span aria-label="Step {index + 1}">{index + 1}</span>
-              <h3>{item.title}</h3>
+              <h3>{card.title}</h3>
             </div>
-            <p>{item.textParagraph}</p>
+            <p>{card.textParagraph}</p>
           </div>
           {/each}
         </div>

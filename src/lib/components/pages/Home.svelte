@@ -8,11 +8,11 @@
   <title>{items[0].title}</title>
 </svelte:head>
 
-<Hero {items} />
-<Reviews {items} />
+<Hero hero={items[0]} />
+<Reviews reviews={items[4].componentsCollection.items} />
 <TicketCarousel {itemCollection} />
 <HeadLine title="How It Works" />
-<HowItWorks {items} />
+<HowItWorks cards={items[1].componentsCollection.items} />
 <HeadLine title="What We Do" />
-<WhatWeDo {items} />
+<WhatWeDo WhatWeDo={items[2].componentsCollection.items} />
 <GiftCard items={items[3]} />
