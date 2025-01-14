@@ -98,28 +98,24 @@
 
     @media (max-width: 768px) {
       flex-direction: column;
-    }
 
-    & div {
-      @media (max-width: 768px) {
+      & picture {
         width: 100%;
         margin: var(--margin) 0;
       }
     }
 
-    & div, article {
+    & picture, article {
       width: 50%;
       display: flex;
       align-items: center;
       flex-direction: column;
     }
 
-    & div {
-      & img {
+    & picture img {
         max-width: 60%;
         aspect-ratio: 1;
         object-fit: cover;
-      }
     }
   }
 
