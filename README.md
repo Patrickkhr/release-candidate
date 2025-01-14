@@ -17,7 +17,7 @@ Wij hebben de opdracht gekregen om de huidige website te verbeteren en te optima
 
 
 
-Livelink: [Wogo](wogorc.netlify.app)
+Livelink: [Wogo](https://wogo.netlify.app/) 
 
 
 ## Gebruik
