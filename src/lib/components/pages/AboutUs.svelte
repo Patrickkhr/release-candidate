@@ -1,11 +1,10 @@
 <script>
     import InfiniteCarrousel from '../organisms/InfiniteCarrousel.svelte'
-    import Scenery from '$lib/assets/about-us-scenery.jpg'
     import Canvas from '../organisms/Canvas.svelte';
     import Title from '../atoms/Title.svelte'
     
     export let items
-    let content = items[3].componentsCollection.items
+    let WoGoContent = items[3].componentsCollection.items
 </script>
 
 <svelte:head>
@@ -20,9 +19,10 @@
       color='light' />
     <blockquote class="initial">{items[0].textParagraph}</blockquote>
   </article>
-  <div>
-    <img src={Scenery} alt="Two people toasting">
-  </div>
+  <picture>
+    <source srcset="/images/Scenery.webp">
+    <img src="/images/Scenery.png" alt="Two people toasting" >
+  </picture>
 </section>
 
 <section id="mission">
@@ -44,10 +44,10 @@
 <section id="getuigenissen">
   <Title 
     headertype='h2'
-    content='{content[0].title}' 
+    content='{WoGoContent[0].title}' 
     color='light' />
-  <p>{content[0].textParagraph}</p>
-  <span>{content[1].textParagraph}</span>
+  <p>{WoGoContent[0].textParagraph}</p>
+  <span>{WoGoContent[1].textParagraph}</span>
   <Canvas />
 </section>
 
