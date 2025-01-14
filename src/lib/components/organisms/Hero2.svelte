@@ -1,6 +1,5 @@
 <script>
   import { Button, ArrowRight, RouteIcon, CocktailIcon } from '$lib/index'
-  // export let items
 </script>
 
 <section>
@@ -14,10 +13,6 @@
     aria-hidden="true"
     poster="/hero-image-background.webp"
   >
-    <!-- <source src="" type="video/webm" />
-    <source src="" type="video/webm" />
-    <source src="path/to/video-480p.mp4" type="video/mp4" media="(min-width: 480px)" />
-    <source src="path/to/video-360p.mp4" type="video/mp4" media="(max-width: 1280px)" /> -->
   </video>
   <div class="overlay"></div>
   <article class="hero-content">
@@ -36,6 +31,7 @@
     </div>
   </article>
 </section>
+
 <section>
   <div>
     <article>

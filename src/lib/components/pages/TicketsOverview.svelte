@@ -18,23 +18,22 @@
 
 <style>
   .intro {
+    background-color: #3f2b21;
     margin-top: 8em;
     padding: 2em;
     width: 100%;
-    background-color: #3f2b21;
   }
 
   ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+
     padding-top: 0.5em;
     padding-right: 2em;
-    display: flex;
-    justify-content: center;
-    list-style: none;
     font-size: 14px;
-  }
 
-  @media screen and (min-width: 768px) {
-    ul {
+    @media (min-width: 768px) {
       font-size: 16px;
     }
   }

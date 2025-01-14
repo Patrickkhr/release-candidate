@@ -1,10 +1,10 @@
 <script>
-    import InfiniteCarrousel from '../organisms/InfiniteCarrousel.svelte'
-    import Canvas from '../organisms/Canvas.svelte';
-    import Title from '../atoms/Title.svelte'
-    
-    export let items
-    let WoGoContent = items[3].componentsCollection.items
+  import InfiniteCarrousel from '../organisms/InfiniteCarrousel.svelte'
+  import Canvas from '../organisms/Canvas.svelte';
+  import Title from '../atoms/Title.svelte'
+  
+  export let items
+  let WoGoContent = items[3].componentsCollection.items
 </script>
 
 <svelte:head>
@@ -16,7 +16,7 @@
     <Title 
       headertype='h1'
       content='{items[0].title}' 
-      color='light' />
+      color='brand' />
     <blockquote class="initial">{items[0].textParagraph}</blockquote>
   </article>
   <picture>
@@ -29,7 +29,7 @@
   <Title 
     headertype='h2'
     content='{items[1].title}' 
-    color='light' />
+    color='brand' />
   <p class="initial">{items[1].textParagraph}</p>
 </section>
 
@@ -37,7 +37,7 @@
   <Title 
     headertype='h2'
     content='{items[2].title}' 
-    color='dark' />
+    color='black' />
   <InfiniteCarrousel />
 </section>
 
@@ -45,7 +45,7 @@
   <Title 
     headertype='h2'
     content='{WoGoContent[0].title}' 
-    color='light' />
+    color='brand' />
   <p>{WoGoContent[0].textParagraph}</p>
   <span>{WoGoContent[1].textParagraph}</span>
   <Canvas />
@@ -57,7 +57,7 @@
       <Title 
         headertype='h3'
         content='{item.title}' 
-        color='dark' />
+        color='black' />
       <p class="initial">{item.textParagraph}</p>
     </article>
   {/each}
