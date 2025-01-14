@@ -1,8 +1,8 @@
 <script>
-  import { Link, CocktailIcon, Button, ArrowRight} from '$lib/index'
-  import logo from '$lib/assets/logo.webp'
-  import nix from '$lib/assets/nix-18.webp'
-  export let footerItems
+  import { Link, CocktailIcon, Button, ArrowRight } from "$lib/index";
+  import logo from "$lib/assets/logo.webp";
+  import nix from "$lib/assets/nix-18.webp";
+  export let footerItems;
 </script>
 
 <footer>
@@ -19,7 +19,12 @@
       <label>
         Email*
         <!-- input veranderen met atom van patrick -->
-        <input type="email" name="email" placeholder={footerItems[0].placeholderText} required />
+        <input
+          type="email"
+          name="email"
+          placeholder={footerItems[0].placeholderText}
+          required
+        />
       </label>
       <Button
         type="submit"
@@ -72,7 +77,6 @@
         <h4>Social</h4>
         <!-- moet later dynamische content zijn in contentful -->
         {#each footerItems[0].socialMediaIconsCollection.items as item}
-
           <li>
             <Link
               href={item.url}
@@ -140,9 +144,9 @@
 <style>
   legend,
   h4 {
-    font-family: 'LuloClean', sans-serif;
+    font-family: "LuloClean", sans-serif;
   }
-  
+
   footer {
     width: 100%;
     padding: 2em 5vw;
@@ -224,7 +228,7 @@
     justify-content: space-evenly;
     align-items: center;
   }
-  li{
+  li {
     margin-top: 0.5rem;
   }
 
