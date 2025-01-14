@@ -104,14 +104,13 @@
         margin: var(--margin) 0;
       }
     }
-
+    
     & picture, article {
       width: 50%;
       display: flex;
       align-items: center;
       flex-direction: column;
     }
-
     & picture img {
         max-width: 60%;
         aspect-ratio: 1;
@@ -150,7 +149,6 @@
     & p {
       margin: 0 var(--margin);
     }
-
     & span {
       margin: var(--margin);
       color: var(--accent2-primary);
