@@ -1,4 +1,4 @@
-<script>
+n<script>
   import { Link, CocktailIcon, Button, ArrowRight} from '$lib/index'
   import logo from '$lib/assets/logo.webp'
   import nix from '$lib/assets/nix-18.webp'
@@ -6,19 +6,16 @@
 </script>
 
 <footer>
-  <!-- LOGO -->
   <img src={logo} height="50" width="50" alt="onder navigatie" />
 
   <section>
-    <!-- NIEUWSBRIEF -->
-    <!-- form veranderen met molecule van patrick -->
+    <!-- Nieuwsbrief -->
     <form>
       <legend>{footerItems[0].newsletterTitle}</legend>
       <p>{footerItems[0].newsLetterDescription}</p>
 
       <label>
         Email*
-        <!-- input veranderen met atom van patrick -->
         <input type="email" name="email" placeholder={footerItems[0].placeholderText} required />
       </label>
       <Button
@@ -35,7 +32,6 @@
     <nav>
       <ul>
         <h4>Navigatie</h4>
-        <!-- moet later dynamische content zijn in contentful -->
         {#each footerItems[0].footerLinksCollection.items as item}
           <li>
             <Link
@@ -52,9 +48,7 @@
 
       <ul>
         <h4>Bronnen</h4>
-        <!-- moet later dynamische content zijn in contentful -->
         {#each footerItems[0].footerLinksCollection.items as item}
-          <!-- moet later andere links zijn -->
           <li>
             <Link
               href={item.slug}
@@ -70,7 +64,6 @@
 
       <ul>
         <h4>Social</h4>
-        <!-- moet later dynamische content zijn in contentful -->
         {#each footerItems[0].socialMediaIconsCollection.items as item}
 
           <li>
@@ -89,14 +82,12 @@
 
       <ul class="review">
         <h4>Review ons</h4>
-        <!-- moet later dynamische content zijn in contentful -->
         <li>
           <form
             aria-label="review ons op Tripadvisor"
             class="feedback"
             action="https://www.tripadvisor.nl/Attraction_Review-g188590-d25182767-Reviews-Cocktail_Walk-Amsterdam_North_Holland_Province.html"
           >
-            <!-- mogelijk nog een ander icon op de deze knoppen -->
             <Button
               type="submit"
               variant="primary"
@@ -127,13 +118,9 @@
     </nav>
   </section>
 
-  <div class="line"></div>
-
-  <!-- COPYRIGHT -->
-  <div>
-    <!-- jaartal moet later dynamische content zijn in contentful -->
+  <div class="copyright">
     <p><small>© 2024 WOGO Amsterdam. Alle rechten voorbehouden.</small></p>
-    <img src={nix} height="30" width="90" alt="nix 18 is niet voor niks" />
+    <img src={nix} height="30" width="90" alt="NIX18 is niet voor niks" />
   </div>
 </footer>
 
@@ -165,7 +152,7 @@
     gap: 1em;
     width: 100%;
 
-    @media screen and (min-width: 48em) {
+    @media (min-width: 48em) {
       width: 30rem;
     }
   }
@@ -195,7 +182,7 @@
     gap: 2em 5em;
     justify-content: space-evenly;
 
-    @media screen and (min-width: 48em) {
+    @media (min-width: 48em) {
       flex-wrap: nowrap;
     }
   }
@@ -203,15 +190,18 @@
   section {
     display: flex;
     flex-direction: column;
+    border-bottom: 1px solid var(--accent2-quaternary);
+    padding-bottom: 3rem;
     gap: 2em;
 
-    @media screen and (min-width: 48em) {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
+
+    @media (min-width: 48em) {
       gap: 5em;
       width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-evenly;
     }
   }
 
@@ -224,15 +214,14 @@
     justify-content: space-evenly;
     align-items: center;
   }
+
   li{
     margin-top: 0.5rem;
   }
 
-  .line {
-    width: 90%;
-    margin: 0 auto;
-    height: 0.5px;
-    border: 0;
-    background-color: var(--accent2-quaternary);
+  .copyright {
+    justify-content: space-between;
+    align-self: center;
+    width: 100%;
   }
 </style>
