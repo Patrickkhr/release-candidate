@@ -26,14 +26,16 @@
           required
         />
       </label>
-      <Button
-        type="submit"
-        variant="primary"
-        title="Abonneer"
-        icon={ArrowRight}
-        iconColor="var(--btn-primary-text-clr)"
-        size="sm"
-      />
+      <div class="form-button">
+        <Button
+          type="submit"
+          variant="primary"
+          title="Abonneer"
+          icon={ArrowRight}
+          iconColor="var(--btn-primary-text-clr)"
+          size="xs"
+        />
+      </div>
     </form>
 
     <!-- Navigatie -->
@@ -173,6 +175,7 @@
       width: 30rem;
     }
   }
+
   .feedback {
     margin-top: 1rem;
     width: 100%;
@@ -228,6 +231,7 @@
     justify-content: space-evenly;
     align-items: center;
   }
+
   li {
     margin-top: 0.5rem;
   }
