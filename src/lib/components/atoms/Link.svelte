@@ -13,7 +13,7 @@
 <a
   data-sveltekit-reload
   {href}
-  style="--clr: {color}; --font-size: {fontSize}; --filter: {filter};"
+  style="color: {color}; font-size: {fontSize}; filter: {filter};"
   {...$$restProps}
 >
   {title}
