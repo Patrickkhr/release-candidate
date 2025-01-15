@@ -33,6 +33,7 @@ export async function load({ params, url }) {
               }
             }
             ... on ItemCollection {
+
               componentsCollection(limit: 20) {
                 items {
                   ... on Card {

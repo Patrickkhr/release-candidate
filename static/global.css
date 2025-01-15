@@ -17,12 +17,12 @@ body {
 h1,
 h2 {
   line-height: 1.2;
-  letter-spacing: 5px;
+  letter-spacing: 1px;
 }
 
 @font-face {
-  font-family: 'Epilogue';
-  src: url('fonts/Epilogue-VariableFont_wght.ttf') format('truetype');
+  font-family: "Epilogue";
+  src: url("fonts/Epilogue-VariableFont_wght.ttf") format("truetype");
 }
 
 /* CSS variables inspired by https://open-props.style/ */

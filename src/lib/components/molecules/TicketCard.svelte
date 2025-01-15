@@ -1,6 +1,5 @@
 <script>
   import {
-    Image,
     RouteIcon,
     CocktailIcon,
     ArrowRightShort,
@@ -27,44 +26,39 @@
       </p>
       <p class="cocktail-price">{item.price}</p>
     </div>
-    <div class="img-overlay">
-      <img
-        src={item.image.url}
-        alt={item.image.title}
-        loading="lazy"
-        width="450"
-        height="321"
-        title={item.image.title.replace(/\s+/g, "-")}
-      />
-      <h2>{item.title}</h2>
-    </div>
-    <div class="card-description">
-      <ul>
-        <li>
-          <span
-            ><RouteIcon
-              width="20"
-              height="20"
-              fill="var(--page-bg-color)"
-            /></span
-          >
-          {item.location}
-        </li>
-        <li>
-          <span
-            ><CocktailIcon
-              width="20"
-              height="20"
-              fill="var(--page-bg-color)"
-            /></span
-          >
-          {item.cocktailDescription}
-        </li>
-      </ul>
-    </div>
+    <img
+      src={item.image.url}
+      alt={item.image.title}
+      loading="lazy"
+      width="450"
+      height="321"
+      title={item.image.title.replace(/\s+/g, "-")}
+    />
+    <h2>{item.title}</h2>
+    <ul class="card-description">
+      <li>
+        <span
+          ><RouteIcon
+            width="20"
+            height="20"
+            fill="var(--page-bg-color)"
+          /></span
+        >
+        {item.location}
+      </li>
+      <li>
+        <span
+          ><CocktailIcon
+            width="20"
+            height="20"
+            fill="var(--page-bg-color)"
+          /></span
+        >
+        {item.cocktailDescription}
+      </li>
+    </ul>
     <div class="card-buttons">
       <Button
-        type="button"
         variant="tertiary"
         title="Boek nu"
         icon={BookIcon}
@@ -87,6 +81,9 @@
     display: flex;
     justify-content: space-between;
     padding: 0.5em;
+    & p {
+      padding-top: 0.3em;
+    }
   }
 
   .cocktail-price {
@@ -105,10 +102,13 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-  }
-
-  @media screen and (min-width: 768px) {
-    article {
+    & h2 {
+      padding-left: 0.5em;
+      padding-top: 0.5em;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+    @media (min-width: 768px) {
       width: 80%;
       max-width: 350px;
     }
@@ -116,7 +116,6 @@
 
   article img {
     position: relative;
-    background-color: black;
     display: block;
     object-fit: cover;
     width: 350px;
@@ -124,19 +123,18 @@
     filter: brightness(0.5);
   }
 
-  h2 {
-    padding-left: 0.5em;
-    padding-top: 0.5em;
-    font-size: 20px;
-    letter-spacing: 2px;
-  }
-
   .card-description {
     padding-left: 0.5em;
-  }
-
-  li {
-    padding-top: 0.4em;
+    & li {
+      padding-top: 0.4em;
+      list-style: none;
+    }
+    & p:first-child {
+      padding-top: 0.3em;
+    }
+    & span {
+      padding-left: 0.5em;
+    }
   }
 
   .card-buttons {
@@ -146,23 +144,12 @@
     transform: scale(0.9);
     margin: 1em 1.5em 1em 0;
     gap: 1em;
-  }
-
-  @media screen and (min-width: 768px) {
-    .card-buttons {
+    @media (min-width: 768px) {
       flex-direction: unset;
       transform: none;
       margin: 1em 1.6em 1em 1.6em;
       padding-right: 15px;
       gap: 2em;
     }
-  }
-
-  p:first-child {
-    padding-top: 0.3em;
-  }
-
-  span {
-    padding-left: 0.5em;
   }
 </style>

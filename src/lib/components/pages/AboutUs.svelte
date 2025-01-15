@@ -1,6 +1,5 @@
 <script>
     import InfiniteCarrousel from '../organisms/InfiniteCarrousel.svelte'
-    import Scenery from '$lib/assets/about-us-scenery.jpg'
     import Canvas from '../organisms/Canvas.svelte';
     import Title from '../atoms/Title.svelte'
     
@@ -20,9 +19,10 @@
       color='light' />
     <blockquote class="initial">{items[0].textParagraph}</blockquote>
   </article>
-  <div>
-    <img src={Scenery} alt="Two people toasting">
-  </div>
+  <picture>
+    <source srcset="/images/Scenery.webp">
+    <img src="/images/Scenery.png" alt="Two people toasting" >
+  </picture>
 </section>
 
 <section id="mission">
@@ -96,18 +96,19 @@
   #about {
     flex-direction: row;
 
-    & div, article {
+    & picture, article {
       width: 50%;
       display: flex;
       align-items: center;
       flex-direction: column;
     }
 
-    & div {
+    & picture {
       & img {
         max-width: 60%;
         aspect-ratio: 1;
         object-fit: cover;
+        background: white;
       }
     }
   }
@@ -177,7 +178,7 @@
     #about {
       flex-direction: column;
     }
-    #about div {
+    #about picture {
       width: 100%;
       margin: var(--margin) 0;
     }
