@@ -27,17 +27,16 @@
   
   <style>
     .faq-section {
-      background-color: black;
+      background-color: #3F2B21;
       color: white;
-      margin-top: 100px; 
-      height: 100vh;
+      height: 100%;
       padding: 2rem;
     }
 
     .faq-vragen{
       width: 80%;
       padding: 2rem;
-      background-color: #3F2B21;
+      background-color: #000;
       border-radius: 8px;
     }
   
@@ -63,15 +62,17 @@
 
     summary::after {
         content: '';
-        width: 18px;
-        height: 10px;
-        background: url('https://uploads.sitepoint.com/wp-content/uploads/2023/10/1697699669arrow.svg') no-repeat;
+        width: 20px;
+        height: 20px;
+        background: url('../../assets/plus.svg') no-repeat;
         background-size: cover;
         transition: 0.2s;
     }
 
     details[open] > summary::after {
-        transform: rotate(180deg);
+        background: url('../../assets/min.svg') no-repeat;
+        background-size: cover;
+        transition: 0.5s;
     }
 
     summary::-webkit-details-marker {
