@@ -26,7 +26,6 @@
         title="book now"
         icon={ArrowRight}
         iconColor="var(--btn-primary-text-clr)"
-        size="lg"
       />
     </h1>
     <p>{hero.subtitle}</p>

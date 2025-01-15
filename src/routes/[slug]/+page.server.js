@@ -33,7 +33,8 @@ export async function load({ params, url }) {
               }
             }
             ... on ItemCollection {
-              componentsCollection(limit: 4) {
+
+              componentsCollection(limit: 20) {
                 items {
                   ... on Card {
                     title
@@ -57,6 +58,17 @@ export async function load({ params, url }) {
                       title
                       description
                     }
+                    asset {
+                      url
+                      title
+                      description
+                    }
+                  }
+                  ... on TypeLink {
+                    title
+                    slug
+                    label
+                    isMoreLink
                     asset {
                       url
                       title

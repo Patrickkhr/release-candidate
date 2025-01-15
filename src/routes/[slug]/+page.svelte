@@ -1,6 +1,6 @@
 <script>
-  import { WorkWithUs, HomePage, GroupOutings, TicketsOverview, AboutUs } from '$lib/index';
-  export let data;
+  import { WorkWithUs, HomePage, GroupOutings, FrequentlyAsked, TicketsOverview, AboutUs } from '$lib/index'
+  export let data
 
   const componentMap = {
     home: HomePage,
@@ -8,6 +8,7 @@
     'work-with-us': WorkWithUs,
     'group-bookings': GroupOutings,
     'about-us': AboutUs,
+    'faq': FrequentlyAsked,
   };
 
   const items = data.pageData.find(

@@ -104,7 +104,6 @@
         margin: var(--margin) 0;
       }
     }
-    
     & picture, article {
       width: 50%;
       display: flex;
@@ -115,6 +114,7 @@
         max-width: 60%;
         aspect-ratio: 1;
         object-fit: cover;
+        background: white;
     }
   }
 

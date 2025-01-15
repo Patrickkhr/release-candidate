@@ -1,5 +1,11 @@
 <script>
-  import { Button, ArrowRight, RouteIcon, CocktailIcon } from '$lib/index'
+  import { Button, ArrowRight, Image } from '$lib/index'
+  export let items
+
+  let HeroText = items[0].componentsCollection.items[0];
+  let ButtonText = items[0].componentsCollection.items[1];
+  let BoekingsInfoL = items[1].componentsCollection.items;
+  let BoekingsInfoR = items[2].componentsCollection.items;
 </script>
 
 <section>
@@ -9,24 +15,27 @@
     muted
     width="1280"
     height="1000"
-    aria-label=""
+    aria-label="{HeroText.asset.description}"
     aria-hidden="true"
-    poster="/hero-image-background.webp"
+    poster={HeroText.asset.url}
   >
+    <source src={HeroText.asset.url} type="video/webm" />
+    <source src={HeroText.asset.url} type="video/webm" />
   </video>
   <div class="overlay"></div>
   <article class="hero-content">
     <h1>
-      GROEPSBOEKING
+      {HeroText.title}
     </h1>
     <div class="hero-description">
-      <p>Bedrijfsuitje, vrijgezellenfeest of vriendenactiviteit? De Cocktail Walk past perfect bij jou.</p>
+      <p>{HeroText.textParagraph}</p>
       <Button
         variant="primary"
-        title="book now"
+        title={ButtonText.title}
         icon={ArrowRight}
         iconColor="var(--btn-primary-text-clr)"
         size="lg"
+        href={ButtonText.slug}
       />
     </div>
   </article>
@@ -35,16 +44,26 @@
 <section>
   <div>
     <article>
-      <p><span><RouteIcon width="25" height="25" fill="var(--page-bg-color)" /></span>Amstedam & Rottedam</p>
-      <p><span><CocktailIcon width="25" height="25" fill="var(--page-bg-color)" /></span>3 Cocktails</p>
-      <p><span><CocktailIcon width="25" height="25" fill="var(--page-bg-color)" /></span>3 Barreseveringen</p>
-      <p><span><CocktailIcon width="25" height="25" fill="var(--page-bg-color)" /></span>7 Dagen per week</p>
+      {#each BoekingsInfoL as item}
+        <p><Image
+          src={item.icon.url}
+          alt={item.icon.title}
+          width="30"
+          height="30"
+          loading="lazy"
+        />{item.title}</p>
+      {/each}
     </article>
     <article>
-      <p><span><RouteIcon width="25" height="25" fill="var(--page-bg-color)" /></span>Zelfgeleide tour van 3-4 uur</p>
-      <p><span><CocktailIcon width="25" height="25" fill="var(--page-bg-color)" /></span>Groepsgroottes 6-30 personen</p>
-      <p><span><CocktailIcon width="25" height="25" fill="var(--page-bg-color)" /></span>Gepersonaliseerde kaart & routes mogelijk</p>
-      <p><span><CocktailIcon width="25" height="25" fill="var(--page-bg-color)" /></span>Snacks mogelijk</p>
+      {#each BoekingsInfoR as item}
+        <p><Image
+          src={item.icon.url}
+          alt={item.icon.title}
+          width="30"
+          height="30"
+          loading="lazy"
+        />{item.title}</p>
+      {/each}
     </article>
   </div>
 </section>

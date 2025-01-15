@@ -1,4 +1,4 @@
-n<script>
+<script>
   import { Link, CocktailIcon, Button, ArrowRight} from '$lib/index'
   import logo from '$lib/assets/logo.webp'
   import nix from '$lib/assets/nix-18.webp'
@@ -18,14 +18,16 @@ n<script>
         Email*
         <input type="email" name="email" placeholder={footerItems[0].placeholderText} required />
       </label>
-      <Button
-        type="submit"
-        variant="primary"
-        title="Abonneer"
-        icon={ArrowRight}
-        iconColor="var(--btn-primary-text-clr)"
-        size="sm"
-      />
+      <div class="form-button">
+        <Button
+          type="submit"
+          variant="primary"
+          title="Abonneer"
+          icon={ArrowRight}
+          iconColor="var(--btn-primary-text-clr)"
+          size="xs"
+        />
+      </div>
     </form>
 
     <!-- Navigatie -->
@@ -65,7 +67,6 @@ n<script>
       <ul>
         <h4>Social</h4>
         {#each footerItems[0].socialMediaIconsCollection.items as item}
-
           <li>
             <Link
               href={item.url}
@@ -127,9 +128,9 @@ n<script>
 <style>
   legend,
   h4 {
-    font-family: 'LuloClean', sans-serif;
+    font-family: "LuloClean", sans-serif;
   }
-  
+
   footer {
     width: 100%;
     padding: 2em 5vw;
@@ -156,6 +157,7 @@ n<script>
       width: 30rem;
     }
   }
+
   .feedback {
     margin-top: 1rem;
     width: 100%;

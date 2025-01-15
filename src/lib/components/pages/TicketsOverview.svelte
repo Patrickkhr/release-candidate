@@ -1,9 +1,9 @@
 <script>
-  import { Filter, TicketCard } from "$lib/index";
+  import { TicketCard } from "$lib/index";
   export let itemCollection;
 </script>
 
-<section class="intro">
+<section class="tours-city">
   <h1>Tours</h1>
   <ul>
     <li>Amsterdam</li>
@@ -12,16 +12,21 @@
   </ul>
 </section>
 
-<section class="tours">
+<section class="tours-cards">
   <TicketCard {itemCollection} />
 </section>
 
 <style>
-  .intro {
-    background-color: #3f2b21;
+  .tours-city {
     margin-top: 8em;
     padding: 2em;
     width: 100%;
+    background-color: var(--accent1-tertiary);
+    & h1 {
+      text-align: center;
+      color: var(--accent2-primary);
+      font-size: 3.5rem;
+    }
   }
 
   ul {
@@ -32,44 +37,36 @@
     padding-top: 0.5em;
     padding-right: 2em;
     font-size: 14px;
-
     @media (min-width: 768px) {
       font-size: 16px;
     }
   }
 
   li {
-    color: #ffe5d9;
+    color: var(--accent2-quaternary);
     cursor: pointer;
     padding: 0.5em 1em 0 2em;
+    &:hover {
+      color: var(--accent2-primary);
+    }
   }
 
-  li:hover {
-    color: #ffaa81;
-  }
-
-  .intro ul li::after {
+  .tours-city ul li::after {
     content: "";
     width: 0%;
     height: 2px;
-    background: #ffaa81;
+    background: var(--accent2-primary);
     display: block;
     margin: auto;
     transition: 0.5s;
   }
 
-  .intro ul li:hover::after {
+  .tours-city ul li:hover::after {
     width: 100%;
   }
 
-  h1 {
-    text-align: center;
-    color: #ffaa81;
-    font-size: 3.5rem;
-  }
-
-  .tours {
-    width: 60%;
+  .tours-cards {
+    width: 80%;
     max-width: 100vw;
     min-width: 300px;
     margin: 0 auto;
