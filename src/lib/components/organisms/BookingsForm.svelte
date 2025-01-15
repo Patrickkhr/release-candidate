@@ -272,7 +272,7 @@
       width: 50%;
       max-width: 50%;
     }
-    article {
+    section > article:nth-of-type(1) {
       flex-direction: column;
     }
     

@@ -104,7 +104,31 @@
     flex-direction: column;
     gap: 1em;
   }
-
+  
+  section:nth-of-type(2) > div > article::before {
+    content: '';
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 4px;
+    background-color: #FFAA81;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
+    animation: none;
+  }
+  
+  article > p {
+    color: white;
+    font-weight: 600;
+  }
+  
+  article > p {
+    display: flex;
+    gap: 0.5em;
+    align-items: flex-end;
+  }
+  
   section:nth-of-type(2) > div:first-of-type {
     margin-bottom: 1em;
   }
