@@ -10,5 +10,4 @@
   <Hero2 {items} />
   <BookingsForm {items} />
 
-<style>
-</style>
+<style></style>

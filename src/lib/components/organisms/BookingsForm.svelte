@@ -1,36 +1,68 @@
 <script>
-  import { TextInput, TextareaInput, DatePicker, TimePicker, Image } from '$lib/index'
-  import logo from '$lib/assets/logo.webp'
-  export let items
+  import { TextInput, TextareaInput, DatePicker, TimePicker, Image } from '$lib/index';
+  import logo from '$lib/assets/logo.webp';
+  export let items;
 
   let FormulierInfo = items[3].componentsCollection.items;
   let SocialIcons = items[4].componentsCollection.items;
 
   let isLoading = false;
   let isSuccess = false;
+  let errorMessage = '';
 
-  function handleSubmit(event) {
+  // Function to handle form submission
+  async function handleSubmit(event) {
     event.preventDefault();
 
     isLoading = true;
-    
-    // Simuleer een formulierverwerking of API-aanroep
-    setTimeout(() => {
+
+    // Prepare the form data as JSON
+    const formData = new FormData(event.target);
+    const data = {};
+
+    // Convert FormData to a plain object
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+
+    try {
+      const response = await fetch('/api/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),  // Send the data as a JSON payload
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        isSuccess = true;
+        setTimeout(() => {
+        isSuccess = false;
+        errorMessage = ''; 
+        event.target.reset();
+      }, 3000);
+      } else {
+        errorMessage = 'Er is iets misgegaan. Probeer het later opnieuw.';
+      }
+    } catch (error) {
+      errorMessage = 'Er is een onverwachte fout opgetreden. Probeer het later opnieuw.';
+    } finally {
       isLoading = false;
-      isSuccess = true;
-    }, 2000); // Pas de tijd aan naar wens
+    }
   }
 </script>
 
 <section id="form">
-  <form on:submit={handleSubmit} method="post" action="/group-bookings">
-    <h1 class="animated-text">Boeken</h1>
-    <TextInput id="first-name" name="first-name" required>Voornaam:</TextInput>
-    <TextInput id="last-name" name="last-name" required>Achternaam:</TextInput>
+  <form on:submit={handleSubmit} method="post" class="{errorMessage ? 'error-form' : ''}">
+    <h1>Boeken</h1>
+    <TextInput id="firstName" name="firstName" required>Voornaam:</TextInput>
+    <TextInput id="lastName" name="lastName" required>Achternaam:</TextInput>
     <TextInput id="email" name="email" type="email" required>Email:</TextInput>
-    <TextInput id="phone" name="phone" type="tel" required>Telefoonnummer:</TextInput>
-    <TextInput id="persons" name="persons" required>Hoeveel personen?</TextInput>
-    <TextareaInput id="request" name="story" placeholder="Typ hier uw bericht...">Aanvraag:</TextareaInput>
+    <TextInput id="phone" name="phone" type="tel" pattern="\d{10}" required>Telefoonnummer:</TextInput>
+    <TextInput id="persons" name="persons" type="number" required>Hoeveel personen?</TextInput>
+    <TextareaInput id="request" name="request" placeholder="Typ hier uw bericht...">Aanvraag:</TextareaInput>
     <DatePicker id="date" name="date" required>Datum:</DatePicker>
     <TimePicker id="time" name="time" value="14:30" min="09:00" max="22:00" required>Kies een tijdstip:</TimePicker>
 
@@ -44,23 +76,31 @@
 
     {#if isSuccess}
       <article class="success-state">
-        <svg fill="#41a146" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120px" height="120px" viewBox="-30.5 -30.5 366.00 366.00" xml:space="preserve" stroke="#41a146">
-          <g id="SVGRepo_bgCarrier" stroke-width="0" transform="translate(44.22529,44.22529), scale(0.71)">
-          <rect x="-30.5" y="-30.5" width="366.00" height="366.00" rx="183" fill="#ffffff" strokewidth="0"/>
-          </g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M152.502,0.001C68.412,0.001,0,68.412,0,152.501s68.412,152.5,152.502,152.5c84.089,0,152.5-68.411,152.5-152.5 S236.591,0.001,152.502,0.001z M152.502,280.001C82.197,280.001,25,222.806,25,152.501c0-70.304,57.197-127.5,127.502-127.5 c70.304,0,127.5,57.196,127.5,127.5C280.002,222.806,222.806,280.001,152.502,280.001z"/> <path d="M218.473,93.97l-90.546,90.547l-41.398-41.398c-4.882-4.881-12.796-4.881-17.678,0c-4.881,4.882-4.881,12.796,0,17.678 l50.237,50.237c2.441,2.44,5.64,3.661,8.839,3.661c3.199,0,6.398-1.221,8.839-3.661l99.385-99.385 c4.881-4.882,4.881-12.796,0-17.678C231.269,89.089,223.354,89.089,218.473,93.97z"/> </g> </g> </g>
+        <svg fill="#41a146" version="1.1" xmlns="http://www.w3.org/2000/svg" width="120px" height="120px" viewBox="-30.5 -30.5 366.00 366.00" xml:space="preserve" stroke="#41a146">
+          <g transform="translate(44.22529,44.22529), scale(0.71)">
+            <rect x="-30.5" y="-30.5" width="366.00" height="366.00" rx="183" fill="#ffffff" strokewidth="0"/>
+          </g>
+          <g> 
+            <path d="M152.502,0.001C68.412,0.001,0,68.412,0,152.501s68.412,152.5,152.502,152.5c84.089,0,152.5-68.411,152.5-152.5 S236.591,0.001,152.502,0.001z M152.502,280.001C82.197,280.001,25,222.806,25,152.501c0-70.304,57.197-127.5,127.502-127.5 c70.304,0,127.5,57.196,127.5,127.5C280.002,222.806,222.806,280.001,152.502,280.001z"/>
+            <path d="M218.473,93.97l-90.546,90.547l-41.398-41.398c-4.882-4.881-12.796-4.881-17.678,0c-4.881,4.882-4.881,12.796,0,17.678 l50.237,50.237c2.441,2.44,5.64,3.661,8.839,3.661c3.199,0,6.398-1.221,8.839-3.661l99.385-99.385 c4.881-4.882,4.881-12.796,0-17.678C231.269,89.089,223.354,89.089,218.473,93.97z"/>
+          </g>
         </svg>
         <h2>Bedankt!</h2>
         <p>Je boeking is voltooid.</p>
       </article>
-      {/if}
+    {/if}
+
+    {#if errorMessage}
+      <p class="error">{errorMessage}</p>
+    {/if}
 
     <button type="submit">Verstuur</button>
   </form>
 
   <article>
-    <div>
-      <img src={logo} height="150" width="150" alt="Wogo Logo" />
-    </div>
+    <picture>
+      <img src={logo} height="150" width="150" alt="Wogo" loading="lazy" />
+    </picture>
     <div>
       {#each FormulierInfo as item}
         <p>
@@ -77,7 +117,7 @@
         </p>
       {/each}
     </div>
-    <ul class="social-media-list" role="list" aria-label="Social links">
+    <ul class="social-media-list" role="list">
       {#each SocialIcons as item}
         <li>
           <a href={item.slug}>
@@ -90,7 +130,7 @@
             />
           </a>
         </li>
-        {/each}
+      {/each}
     </ul>
   </article>
 </section>
@@ -182,6 +222,7 @@
     border-radius: 5px;
   }
 
+  section > article > picture,
   section > article > div {
     display: flex;
     flex-direction: column;
@@ -193,6 +234,7 @@
     gap: 1em;
   }
 
+  article > picture,
   article > div,
   article > ul > li {
     background-color: #3F2B21;
@@ -200,16 +242,16 @@
     box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
   }
 
-  section > article > div:nth-of-type(1) {
+  section > article > picture {
     align-items: center;
     padding: 3em;
   }
 
-  section > article > div:nth-of-type(2) {
+  section > article > div:nth-of-type(1) {
     padding: 1em;
   }
 
-  section > article > div:nth-of-type(2) > p {
+  section > article > div:nth-of-type(1) > p {
     display: flex;
     gap: 0.5em;
     align-items: center;
@@ -235,6 +277,15 @@
     height: 100%;
     width: 100%;
     padding: 1em;
+  }
+
+  .error-form {
+    border: 2px solid red;
+    border-radius: 8px;
+  }
+
+  .error {
+    color: white;
   }
 
   @media (min-width: 30em) {}
