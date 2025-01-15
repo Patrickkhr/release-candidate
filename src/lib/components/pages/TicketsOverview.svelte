@@ -30,11 +30,12 @@
   }
 
   ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+
     padding-top: 0.5em;
     padding-right: 2em;
-    display: flex;
-    justify-content: center;
-    list-style: none;
     font-size: 14px;
     @media (min-width: 768px) {
       font-size: 16px;

@@ -1,13 +1,13 @@
 <script>
     import { onMount } from 'svelte';
-    export let items;
+    export let reviews;
   
     // Track the current slide and interval for auto-sliding
     let currentIndex = 0;
     let interval;
   
     // Check if there are reviews to display
-    const hasReviews = items?.[4]?.componentsCollection?.items?.length > 0;
+    const hasReviews = reviews?.length > 0;
   
     // Change the current slide manually and reset the auto-slide timer
     const changeSlide = (index) => {
@@ -25,7 +25,7 @@
     const startAutoSlide = () => {
       if (hasReviews) {
         interval = setInterval(() => {
-          currentIndex = (currentIndex + 1) % items[1].componentsCollection.items.length;
+          currentIndex = (currentIndex + 1) % reviews.length;
         }, 5000); // Change slide every 5 seconds
       }
     };
@@ -42,7 +42,7 @@
   <section class="reviews-section">
     <!-- Carousel: Display reviews horizontally -->
     <div class="carousel-wrapper">
-      {#each items[4].componentsCollection.items as item, index}
+      {#each reviews as item, index}
         <article
           class="review-card {currentIndex === index ? 'active' : ''}"
           style="transform: translateX(calc((var(--index, 0) - {currentIndex}) * 100%));"
@@ -66,7 +66,7 @@
   
     <!-- Carousel controls: Dots for navigation -->
     <div class="controls" aria-label="Carousel navigation">
-      {#each items[1].componentsCollection.items as _, index}
+      {#each reviews as _, index}
         <button
           class="dot {currentIndex === index ? 'active' : ''}"
           on:click={() => changeSlide(index)}

@@ -32,10 +32,13 @@
     font-size: var(--fs-lg) !important;
   }
 
-  .title-light {
+  .title-brand {
     color: var(--accent2-primary);
   }
-  .title-dark {
+  .title-white {
+    color: white;
+  }
+  .title-black {
     color: var(--txt-dark-clr);
   }
 </style>
