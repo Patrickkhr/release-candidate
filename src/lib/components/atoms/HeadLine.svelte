@@ -7,11 +7,11 @@
 <style>
   h2 {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-transform: uppercase;
-    font-size: var(--fs-xl);
     color: var(--txt-tertiary-clr);
+    font-size: var(--fs-xl);
     padding: 1em;
   }
 </style>

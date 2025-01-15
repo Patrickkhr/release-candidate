@@ -1,10 +1,10 @@
 <script>
-    import InfiniteCarrousel from '../organisms/InfiniteCarrousel.svelte'
-    import Canvas from '../organisms/Canvas.svelte';
-    import Title from '../atoms/Title.svelte'
-    
-    export let items
-    let content = items[3].componentsCollection.items
+  import InfiniteCarrousel from '../organisms/InfiniteCarrousel.svelte'
+  import Canvas from '../organisms/Canvas.svelte';
+  import Title from '../atoms/Title.svelte'
+  
+  export let items
+  let WoGoContent = items[3].componentsCollection.items
 </script>
 
 <svelte:head>
@@ -16,7 +16,7 @@
     <Title 
       headertype='h1'
       content='{items[0].title}' 
-      color='light' />
+      color='brand' />
     <blockquote class="initial">{items[0].textParagraph}</blockquote>
   </article>
   <picture>
@@ -29,7 +29,7 @@
   <Title 
     headertype='h2'
     content='{items[1].title}' 
-    color='light' />
+    color='brand' />
   <p class="initial">{items[1].textParagraph}</p>
 </section>
 
@@ -37,17 +37,17 @@
   <Title 
     headertype='h2'
     content='{items[2].title}' 
-    color='dark' />
+    color='black' />
   <InfiniteCarrousel />
 </section>
 
 <section id="getuigenissen">
   <Title 
     headertype='h2'
-    content='{content[0].title}' 
-    color='light' />
-  <p>{content[0].textParagraph}</p>
-  <span>{content[1].textParagraph}</span>
+    content='{WoGoContent[0].title}' 
+    color='brand' />
+  <p>{WoGoContent[0].textParagraph}</p>
+  <span>{WoGoContent[1].textParagraph}</span>
   <Canvas />
 </section>
 
@@ -57,7 +57,7 @@
       <Title 
         headertype='h3'
         content='{item.title}' 
-        color='dark' />
+        color='black' />
       <p class="initial">{item.textParagraph}</p>
     </article>
   {/each}
@@ -96,20 +96,25 @@
   #about {
     flex-direction: row;
 
+    @media (max-width: 768px) {
+      flex-direction: column;
+
+      & picture {
+        width: 100%;
+        margin: var(--margin) 0;
+      }
+    }
     & picture, article {
       width: 50%;
       display: flex;
       align-items: center;
       flex-direction: column;
     }
-
-    & picture {
-      & img {
+    & picture img {
         max-width: 60%;
         aspect-ratio: 1;
         object-fit: cover;
         background: white;
-      }
     }
   }
 
@@ -144,7 +149,6 @@
     & p {
       margin: 0 var(--margin);
     }
-
     & span {
       margin: var(--margin);
       color: var(--accent2-primary);
@@ -166,25 +170,15 @@
       width: 25%;
       margin: 0 calc(var(--margin) * 2);
 
+      @media (max-width: 768px) {
+        width: 100%;
+        margin: 0 calc(var(--margin) - 0.75rem);
+      }
+
       & p {
         max-width: 38ch;
         color: var(--btn-primary-text-clr);
       }
-    }
-  }
-  
-  /* Media Query for small-screens */
-  @media (max-width: 768px) {
-    #about {
-      flex-direction: column;
-    }
-    #about picture {
-      width: 100%;
-      margin: var(--margin) 0;
-    }
-    #information article {
-      width: 100%;
-      margin: 0 calc(var(--margin) - 0.75rem);
     }
   }
 </style>

@@ -1,6 +1,6 @@
 <script>
-  import { Button, ArrowRight } from "$lib/index";
-  export let items;
+  import { Button, ArrowRight } from '$lib/index'
+  export let hero
 </script>
 
 <section>
@@ -10,26 +10,17 @@
     muted
     width="1280"
     height="1000"
-    aria-label={items.description}
     aria-hidden="true"
     poster="/hero-image-background.webp"
   >
-    <source src={items[0].asset.url} type="video/webm" />
-    <source src={items[0].asset.url} type="video/webm" />
-    <source
-      src="path/to/video-480p.mp4"
-      type="video/mp4"
-      media="(min-width: 480px)"
-    />
-    <source
-      src="path/to/video-360p.mp4"
-      type="video/mp4"
-      media="(max-width: 1280px)"
-    />
+    <source src={hero.asset.url} type="video/webm" />
+    <source src={hero.asset.url} type="video/webm" />
+    <source src="path/to/video-480p.mp4" type="video/mp4" media="(min-width: 480px)" />
+    <source src="path/to/video-360p.mp4" type="video/mp4" media="(max-width: 1280px)" />
   </video>
   <div class="hero-content">
     <h1>
-      {items[0].title}
+      {hero.title}
       <Button
         variant="primary"
         title="book now"
@@ -37,7 +28,7 @@
         iconColor="var(--btn-primary-text-clr)"
       />
     </h1>
-    <p>{items[0].subtitle}</p>
+    <p>{hero.subtitle}</p>
   </div>
 </section>
 
