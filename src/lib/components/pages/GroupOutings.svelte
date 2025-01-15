@@ -1,14 +1,13 @@
 <script>
-  import { Hero2, TicketCarousel, HowItWorks, HeadLine, WhatWeDo, GiftCard, BookingsForm } from '$lib/index'
-  // export let itemCollection
+  import { Hero2, BookingsForm } from '$lib/index';
+  export let items
 </script>
 
 
 <svelte:head>
   <title></title>
 </svelte:head>
-
-<Hero2 />
-<BookingsForm />
+  <Hero2 {items} />
+  <BookingsForm {items} />
 
 <style></style>

@@ -64,6 +64,17 @@ export async function load({ params, url }) {
                       description
                     }
                   }
+                  ... on TypeLink {
+                    title
+                    slug
+                    label
+                    isMoreLink
+                    asset {
+                      url
+                      title
+                      description
+                    }
+                  }
                 }
               }
             }
