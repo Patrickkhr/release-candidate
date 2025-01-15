@@ -166,25 +166,6 @@
     box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
   }
 
-  form > div {
-    display: flex;
-    flex-direction: column;
-  }
-
-  form > div > input,
-  form > div > textarea {
-    width: 100%;
-    padding: 0.625em;
-    border: none;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #000;
-  }
-
-  form label, h1 {
-    color: white;
-  }
-
   form > h1 {
     font-size: var(--fs-2xl);
   }
