@@ -37,7 +37,7 @@
 <style>
   .btn {
     padding: 0.7em 0.5em 0.7em 0.5em;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     vertical-align: middle;
@@ -46,9 +46,8 @@
     line-height: var(--lh-1);
     text-decoration: none;
     gap: 0.5rem;
-    background-color: var(--bgc);
-    color: var(--clr);
-    border: var(--border);
+    color: var(--accent2-primary);
+    border: var(--accent2-primary);
     font-size: 14px;
     box-shadow: var(--box-shadow);
     cursor: pointer;
@@ -64,11 +63,14 @@
       }
     }
     &:focus {
-      border: 2px solid var(--accent1-primary);
+      border: 2px solid var(--accent2-primary);
     }
   }
 
   .btn-primary {
+    scale: 1.25;
+    padding: 0.75em 1.5em;
+    margin-left: 1em;
     border-radius: var(--btn-radius);
     background-color: var(--btn-primary-bg);
     color: var(--btn-primary-text-clr);
@@ -81,7 +83,7 @@
     border-radius: 0.4em;
     font-weight: 500;
     color: var(--page-bg-color);
-    border: 1.5px solid var(--accent1-primary);
+    border: 1.5px solid var(--page-bg-color);
     @media (min-width: 768px) {
       padding: 0.7em 1.5em 0.7em 1.5em;
     }
@@ -94,6 +96,11 @@
     @media (min-width: 768px) {
       padding: 0.7em 1.5em 0.7em 1.5em;
     }
+  }
+
+  .btn-quaternary {
+    display: flex;
+    border: 2px solid var(--accent2-primary);
   }
 
   .btn-icon {
