@@ -26,7 +26,7 @@
       </p>
       <p class="cocktail-price">{item.price}</p>
     </div>
-    <img
+    <img style="{`view-transition-name:${item.image.title.replace(/\s+/g, "-")}`}"
       src={item.image.url}
       alt={item.image.title}
       loading="lazy"

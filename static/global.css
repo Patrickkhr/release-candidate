@@ -20,6 +20,10 @@ h2 {
   letter-spacing: 1px;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 @font-face {
   font-family: "Epilogue";
   src: url("fonts/Epilogue-VariableFont_wght.ttf") format("truetype");
