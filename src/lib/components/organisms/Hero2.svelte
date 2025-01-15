@@ -119,7 +119,7 @@
   }
   
   article > p {
-    color: white;
+    color: var(--txt-quaternary-clr);
     font-weight: 600;
   }
   

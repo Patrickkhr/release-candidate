@@ -168,6 +168,7 @@
 
   form > h1 {
     font-size: var(--fs-2xl);
+    color: white;
   }
 
 
@@ -213,6 +214,7 @@
     display: flex;
     gap: 1em;
     align-items: center;
+    color: white;
   }
 
   article > ul {
