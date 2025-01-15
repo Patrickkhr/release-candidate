@@ -96,7 +96,6 @@
 
     <button type="submit">Verstuur</button>
   </form>
-
   <article>
     <picture>
       <img src={logo} height="150" width="150" alt="Wogo" loading="lazy" />
@@ -137,6 +136,7 @@
 
 <style>
   section {
+    padding-inline: 2em;
     display: flex;
     flex-direction: column;
     gap: 3em;
@@ -144,7 +144,7 @@
     max-width: 90em;
     margin: auto;
   }
-
+  
   form {
     display: flex;
     flex-direction: column;
@@ -166,62 +166,39 @@
     box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
   }
 
-  form > h1 {
-    font-size: var(--fs-2xl);
-    color: white;
-  }
-
-  form > article > svg {
-    margin-bottom: 1em;
-  }
-
-  .loading-state, .success-state {
+  form > div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #3F2B21;
-    color: white;
-    border-radius: 8px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
   }
 
-  .loading-state, .success-state, h2 {
+  form > div > input,
+  form > div > textarea {
+    width: 100%;
+    padding: 0.625em;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+  }
+
+  form label, h1 {
+    color: white;
+  }
+
+  form > h1 {
     font-size: var(--fs-2xl);
   }
-  .loading-state, .success-state, p {
-    font-size: var(--fs-md);
-  }
 
-  .spinner {
-    border: 16px solid #f3f3f3;
-    border-top: 16px solid #f7956f;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 1s linear infinite;
-    margin-bottom: 2em;
-  }
-
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
 
   button {
     background-color: #f7956f;
     border: none;
     padding: 1em;
-    color: black;
+    color: white;
     cursor: pointer;
     border-radius: 5px;
   }
-
+  
   section > article > picture,
   section > article > div {
     display: flex;
@@ -246,24 +223,22 @@
     align-items: center;
     padding: 3em;
   }
-
+  
   section > article > div:nth-of-type(1) {
     padding: 1em;
   }
 
   section > article > div:nth-of-type(1) > p {
     display: flex;
-    gap: 0.5em;
+    gap: 1em;
     align-items: center;
-    color: white;
-    font-weight: 600;
   }
 
   article > ul {
     display: flex;
     justify-content: space-between;
     list-style-type: none;
-    gap: 0.5em;
+    gap: 0.5em
   }
 
   article > ul > li {
@@ -278,7 +253,7 @@
     width: 100%;
     padding: 1em;
   }
-
+  
   .error-form {
     border: 2px solid red;
     border-radius: 8px;
@@ -288,21 +263,19 @@
     color: white;
   }
 
-  @media (min-width: 30em) {}
-
   @media (min-width: 44em) {
     section {
       flex-direction: row;
       justify-content: space-between;
-      padding-inline: 2em;
     }
     form {
       width: 50%;
       max-width: 50%;
     }
-    section > article:nth-of-type(1) {
+    article {
       flex-direction: column;
     }
+    
   }
 
   @media (min-width: 55em) {

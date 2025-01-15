@@ -1,6 +1,6 @@
 <script>
-  import { Button, ArrowRight } from '$lib/index'
-  export let items
+  import { Button, ArrowRight } from "$lib/index";
+  export let items;
 </script>
 
 <section>
@@ -16,8 +16,16 @@
   >
     <source src={items[0].asset.url} type="video/webm" />
     <source src={items[0].asset.url} type="video/webm" />
-    <source src="path/to/video-480p.mp4" type="video/mp4" media="(min-width: 480px)" />
-    <source src="path/to/video-360p.mp4" type="video/mp4" media="(max-width: 1280px)" />
+    <source
+      src="path/to/video-480p.mp4"
+      type="video/mp4"
+      media="(min-width: 480px)"
+    />
+    <source
+      src="path/to/video-360p.mp4"
+      type="video/mp4"
+      media="(max-width: 1280px)"
+    />
   </video>
   <div class="hero-content">
     <h1>
@@ -27,7 +35,6 @@
         title="book now"
         icon={ArrowRight}
         iconColor="var(--btn-primary-text-clr)"
-        size="lg"
       />
     </h1>
     <p>{items[0].subtitle}</p>

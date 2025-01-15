@@ -2,7 +2,6 @@
   export let alt = ''
   export let src = ''
   export let opacity = ''
-  export let title = ''
 
   // Webp images
   export let smallWebp = '../header-image-small.webp'
@@ -29,7 +28,7 @@
   <source media="(max-width: 1024px)" srcset={largeFallback} />
 
   <!-- Standaard afbeelding voor andere gevallen -->
-  <img {src} {alt} style={`opacity: ${opacity}; view-transition-name: ${title};`} />
+  <img {src} {alt} style={`opacity: ${opacity}`} />
 </picture>
 
 <style>

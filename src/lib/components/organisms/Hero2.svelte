@@ -6,7 +6,6 @@
   let ButtonText = items[0].componentsCollection.items[1];
   let BoekingsInfoL = items[1].componentsCollection.items;
   let BoekingsInfoR = items[2].componentsCollection.items;
-
 </script>
 
 <section>
@@ -105,18 +104,6 @@
     gap: 1em;
   }
 
-  section:nth-of-type(2) > div > article::before {
-    content: '';
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 4px;
-    background-color: #FFAA81;
-    border-radius: 4px;
-    margin-bottom: 4px;
-    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
-    animation: none;
-  }
   section:nth-of-type(2) > div:first-of-type {
     margin-bottom: 1em;
   }
@@ -154,22 +141,6 @@
     padding: 0.5em;
   }
 
-  
-  article > p {
-    color: white;
-    font-weight: 600;
-  }
-  
-  article > p {
-    display: flex;
-    gap: 0.5em;
-    align-items: flex-end;
-  }
-
-  h1, p {
-    animation: none;
-  }
-
   h1 {
     position: relative;
     display: inline-block;
@@ -180,6 +151,9 @@
     font-size: clamp(2.648rem, 6vw, 4.241rem);
     letter-spacing: -1px;
     filter: drop-shadow(0 0 0.4rem #000);
+    animation: heading;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
   }
 
   @keyframes heading {
@@ -195,6 +169,9 @@
     font-size: 1.2rem;
     font-weight: 700;
     position: relative;
+    animation-name: content;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
   }
 
   @keyframes content {
@@ -203,19 +180,6 @@
     }
     100% {
       left: 0px;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    h1 {
-      animation: heading 3s forwards;
-    }
-
-    p {
-      animation: content 3s forwards;
-    }
-    section:nth-of-type(2) > div > article::before {
-      animation: content 3s forwards;
     }
   }
 

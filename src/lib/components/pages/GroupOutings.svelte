@@ -3,10 +3,10 @@
   export let items
 </script>
 
-<svelte:head>
-  <title>Groepsboekingen</title>
-</svelte:head>
 
+<svelte:head>
+  <title></title>
+</svelte:head>
   <Hero2 {items} />
   <BookingsForm {items} />
 

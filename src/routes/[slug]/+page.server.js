@@ -20,7 +20,6 @@ export async function load({ params, url }) {
               location
               asset {
                 url
-                title
                 description
               }   
             }
@@ -34,7 +33,8 @@ export async function load({ params, url }) {
               }
             }
             ... on ItemCollection {
-              componentsCollection(limit: 4) {
+
+              componentsCollection(limit: 20) {
                 items {
                   ... on Card {
                     title

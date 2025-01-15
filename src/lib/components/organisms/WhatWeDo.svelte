@@ -1,6 +1,6 @@
 <script>
-  import { Button, ArrowRight, Image } from '$lib/index'
-  export let items
+  import { Button, ArrowRight, Image } from "$lib/index";
+  export let items;
 </script>
 
 <section id="main">
@@ -27,10 +27,9 @@
         </h3>
         <p>{item.textParagraph}</p>
         <Button
+          variant="quaternary"
           href="/"
-          variant="secondary"
           title="Read More"
-          size="sm"
           icon={ArrowRight}
           iconColor="var(--accent2-primary)"
         />

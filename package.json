@@ -31,6 +31,7 @@
 	"type": "module",
 	"dependencies": {
 		"contentful": "^10.8.4",
-		"graphql-request": "^6.1.0"
+		"graphql-request": "^6.1.0",
+		"supports-webp": "^3.0.0"
 	}
 }
