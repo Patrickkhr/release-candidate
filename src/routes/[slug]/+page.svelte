@@ -1,5 +1,5 @@
 <script>
-  import { WorkWithUs, HomePage, GroupOutings, TicketsOverview, AboutUs } from '$lib/index'
+  import { WorkWithUs, HomePage, GroupOutings, FrequentlyAsked, TicketsOverview, AboutUs } from '$lib/index'
   export let data
 
   const componentMap = {
